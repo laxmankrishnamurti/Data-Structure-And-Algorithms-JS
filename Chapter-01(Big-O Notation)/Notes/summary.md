@@ -25,3 +25,11 @@ It refers to the maximum amount of time or resources(such as memory) that an alg
 
 - O(n^3)
   - Cubic time
+
+# What exaclty Time-complexity is?
+
+Time complexity dosen't mean that how long an algoright takes time to accompolish a task but instead of this what time complexity is "How many numbers of operations that an algorithm requires to accompolish the task as input grows".
+
+Hence, Time complexity is directly perposnal to the number of operations.
+
+If number of operations reduces as input grows then we can say that the algorithm is best in that case. OR number of operations increases not to much as relative to the number of inputs grow.
