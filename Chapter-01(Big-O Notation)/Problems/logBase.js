@@ -7,8 +7,10 @@ function findLogBaseTwo(n) {
     return exponential
 }
 
-let value = findLogBaseTwo(64)
-console.log("Exponent value is :", value)
+let baseTwoParameter = 1000000
+let baseTwoValue = findLogBaseTwo(baseTwoParameter)
+console.log("Exponentail value of " + baseTwoParameter + " in log base 10 is : ", baseTwoValue)
+
 
 function findLogBaseTen(n) {
     let exponential = 0;
@@ -18,6 +20,6 @@ function findLogBaseTen(n) {
     return exponential
 }
 
-let parameter = 1000
-let baseTenValue = findLogBaseTen(parameter)
-console.log("Exponentail value of " + parameter + " in log base 10 is : ", baseTenValue)
+let baseTenParameter = 1000
+let baseTenValue = findLogBaseTen(baseTenParameter)
+console.log("Exponentail value of " + baseTenParameter + " in log base 10 is : ", baseTenValue)
