@@ -68,3 +68,7 @@ It is same a inner functions, like that :-
     console.log("Outer variable is : ", outerVariable); //Output :- ReferenceError
     console.log("Inner variable is : ", innerVariable); //Output :- ReferenceError
 </pre>
+
+```javascript
+console.log("Hello world");
+```
