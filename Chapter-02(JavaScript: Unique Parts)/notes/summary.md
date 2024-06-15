@@ -10,18 +10,18 @@ let say we declare a function at the top of the script and after that we delcare
 
 This is something known as "Variable Hoisting".
 
-<pre>
-    function hello(){
-        username = "Laxman"
-        console.log("Hello ", username);
-    }
+```javascript
+function hello() {
+  username = "Laxman";
+  console.log("Hello ", username);
+}
 
-    hello()
+hello();
 
-    var username;
+var username;
 
-    //Output :- Hello Laxman
-</pre>
+//Output :- Hello Laxman
+```
 
 If we do the same thing by declaraing "let" or "const" we got an refference error. The most important point that we should keep in our mind is because of the "username" varibale(declare via var-keyword) is floating to the top so that's why we would able to initialized it's value.
 
@@ -31,44 +31,40 @@ Function scope referes to the context within a function where variable are acces
 
 If we declare a variable inside a function is only accessable within that function and will not accessable outside of the function, called "Function scope".
 
-<pre>
-    function functionScope(){
-        let username1 = "Laxman"
-        var username2 = "Harshad"
+```javascript
+function functionScope() {
+  let username1 = "Laxman";
+  var username2 = "Harshad";
 
-        console.log("username1 is : ", username1);
-    }
+  console.log("username1 is : ", username1);
+}
 
-    functionScope()
-    console.log("username2 is : ", username2);  //error :- ReferenceError: username2 is not defined
-</pre>
+functionScope();
+console.log("username2 is : ", username2); //error :- ReferenceError: username2 is not defined
+```
 
 In function scope, it dosen't matter that what's the operator we are using to declare a variable will not be accessable outside of the function scope.
 
 It is same a inner functions, like that :-
 
-<pre>
-    function outerFunction(){
-        var outerVariable = "Outer"
-
-        function innerFunction(){
-            var innerVariable = "Inner" 
-            console.log("Outer variable is : ", outerVariable); //Output :- Outer
-            console.log("Inner variable is : ", innerVariable); //Inner  :- Inner
-        }
-
-        innerFunction()
-        
-        console.log("Outer variable is : ", outerVariable); //Output :- Outer
-        console.log("Inner variable is : ", innerVariable); //Inner :- Reference Error
-    }
-
-    outerFunction()
-
-    console.log("Outer variable is : ", outerVariable); //Output :- ReferenceError
-    console.log("Inner variable is : ", innerVariable); //Output :- ReferenceError
-</pre>
-
 ```javascript
-console.log("Hello world");
+function outerFunction() {
+  var outerVariable = "Outer";
+
+  function innerFunction() {
+    var innerVariable = "Inner";
+    console.log("Outer variable is : ", outerVariable); //Output :- Outer
+    console.log("Inner variable is : ", innerVariable); //Inner  :- Inner
+  }
+
+  innerFunction();
+
+  console.log("Outer variable is : ", outerVariable); //Output :- Outer
+  console.log("Inner variable is : ", innerVariable); //Inner :- Reference Error
+}
+
+outerFunction();
+
+console.log("Outer variable is : ", outerVariable); //Output :- ReferenceError
+console.log("Inner variable is : ", innerVariable); //Output :- ReferenceError
 ```
