@@ -17,6 +17,10 @@
 
 /******************************  Number.EPSILON  ********************************** */
 
+/**
+ * This will return the smallest interval between two representable numbers.
+ */
+
 // console.log(Number.EPSILON)
 
 function numberEquals(x, y) {
