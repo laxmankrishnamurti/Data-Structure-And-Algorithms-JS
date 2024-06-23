@@ -21,37 +21,38 @@
  * This will return the smallest interval between two representable numbers.
  */
 
-// console.log(Number.EPSILON)
+// console.log(Number.EPSILON)  //It has a seperate file :: name :- floatingPoints.js
 
-function numberEquals(x, y) {
-    return Math.abs(x - y) < Number.EPSILON
-}
+// function numberEquals(x, y) {
+//     return Math.abs(x - y) < Number.EPSILON
+// }
 
 // console.log(numberEquals(-2.4, 2.5))
+// console.log(Number.EPSILON)
 
 /******************************************* Maximum ***********************************/
 
-console.log(Number.MAX_SAFE_INTEGER)    //9007199254740991
-console.log(Number.MIN_SAFE_INTEGER)    //-9007199254740991
+// console.log(Number.MAX_SAFE_INTEGER)    //9007199254740991
+// console.log(Number.MIN_SAFE_INTEGER)    //-9007199254740991
 
-console.log(Number.MAX_SAFE_INTEGER + 1)    //900719925474099
-console.log(Number.MAX_SAFE_INTEGER + 2)    //900719925474099
-console.log(Number.MAX_SAFE_INTEGER + 20)   //900719925474099
-console.log((Number.MAX_SAFE_INTEGER + 1) === (Number.MAX_SAFE_INTEGER + 2))    //true
+// console.log(Number.MAX_SAFE_INTEGER + 1)    //900719925474099
+// console.log(Number.MAX_SAFE_INTEGER + 2)    //900719925474099
+// console.log(Number.MAX_SAFE_INTEGER + 20)   //900719925474099
+// console.log((Number.MAX_SAFE_INTEGER + 1) === (Number.MAX_SAFE_INTEGER + 2))    //true
 
 //Note :- This will true because it cannot go any higher. However, it does not work for floating-point decimals. And same goes with smallest integer.
 
 /********************************************** Minimum *****************************/
 
-console.log((Number.MAX_SAFE_INTEGER + 1.0) === (Number.MAX_SAFE_INTEGER + 2.1))    //false
+// console.log((Number.MAX_SAFE_INTEGER + 1.0) === (Number.MAX_SAFE_INTEGER + 2.1))    //false
 
 //Return the larget floating point number 
-console.log(Number.MAX_VALUE)   //1.7976931348623157e+308
-console.log(Number.MIN_VALUE)   //5e-324    {Note :: This is not a negative number but actually this is biggest thatn "Number.MIN_-SAGE_INTEGER"}
+// console.log(Number.MAX_VALUE)   //1.7976931348623157e+308
+// console.log(Number.MIN_VALUE)   //5e-324    {Note :: This is not a negative number but actually this is biggest thatn "Number.MIN_-SAGE_INTEGER"}
 
-console.log((Number.MAX_VALUE + 1.235) === (Number.MAX_VALUE + 2.3256)) //true 
+// console.log((Number.MAX_VALUE + 1.235) === (Number.MAX_VALUE + 2.3256)) //true 
 
 //Note :- Number.MIN_VALUE isi also the closest floating point to zero so that's why we can see that kind of result :-
-console.log((Number.MIN_VALUE - 1) === (-1))    //true
+// console.log((Number.MIN_VALUE - 1) === (-1))    //true
 
 // Because this is similar to writing like this  :: (0 - 1) = -1
