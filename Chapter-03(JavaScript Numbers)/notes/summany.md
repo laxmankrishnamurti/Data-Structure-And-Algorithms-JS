@@ -2,7 +2,7 @@
 
 I know at this point of stage this question dosen't make sense too much but just for understanding lets know about prime factorization.
 
-Prime factorization is the process of breaking down a number into its smallest prime factors. And believe on me guys this is not as much easy as you think. And this is more than of it's own defination.
+Prime factorization is the process of breaking down a number into its smallest prime factors. And believe me guys this is not as much easy as you think. And this is more than of it's own defination.
 
 ex:- 18 :: 18 / 2 = 9; 9 / 3 = 3; 3 / 3 = 1
 Hence,
