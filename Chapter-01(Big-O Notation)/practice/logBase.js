@@ -7,9 +7,9 @@ function findLogBaseTwo(n) {
     return exponential
 }
 
-let baseTwoParameter = 1000000
+let baseTwoParameter = 2048
 let baseTwoValue = findLogBaseTwo(baseTwoParameter)
-console.log("Exponentail value of " + baseTwoParameter + " in log base 10 is : ", baseTwoValue)
+console.log("Exponentail value of " + baseTwoParameter + " in log base 2 is : ", baseTwoValue)
 
 
 function findLogBaseTen(n) {
@@ -20,6 +20,6 @@ function findLogBaseTen(n) {
     return exponential
 }
 
-let baseTenParameter = 1000
+let baseTenParameter = 1025458965
 let baseTenValue = findLogBaseTen(baseTenParameter)
 console.log("Exponentail value of " + baseTenParameter + " in log base 10 is : ", baseTenValue)
