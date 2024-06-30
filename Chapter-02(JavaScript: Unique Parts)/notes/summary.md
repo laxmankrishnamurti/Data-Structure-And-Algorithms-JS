@@ -43,7 +43,7 @@ functionScope();
 console.log("username2 is : ", username2); //error :- ReferenceError: username2 is not defined
 ```
 
-In function scope, it dosen't matter that what's the operator we are using to declare a variable will not be accessable outside of the function scope.
+In function scope, it dosen't matter that what's the keyword we are using to declare a variable, will not be accessable outside from the function scope.
 
 It is same a inner functions, like that :-
 
@@ -70,9 +70,9 @@ console.log("Inner variable is : ", innerVariable); //Output :- ReferenceError
 ```
 
 Hence,
-If we declared a variable inside a function and we are using that variable in any expression first of all javascript will check whether the variable is present or not in that scope. If it will not in the scope it will throw an reference error.
+If we declared a variable inside a function and we are using that variable in any expression; first of javascript interpreter(or compiler) will check whether the variable is present or not in that scope. If it will not present in the scope it will throw an reference error.
 
-Note :- Every function has it's own scope called function scope. If we used any variable value in a function, it needs to that variable to accompolist the task so it starts finding the used variable in it's scope. If it will get the variable all are fine but if not it will starts finding the variable into the global scope. At the end to the process if it will not get any such kind of variable in the both function scope and global scope it will throw an referenceError and says that such kind of variable dosen't exist or not declared.
+Note :- Every function has it's own scope called "function scope". If we used any variable value in a function, it needs to that variable to accompolist the task so it starts finding the used variable in it's scope. If it will get the variable then we no need to worry about; but if not. it will starts finding the variable into the global scope. At the end to the process if it will not get any such kind of variable in the both function scope and global scope it will throw an referenceError and says that such kind of variable dosen't exist or not declared.
 
 # Variable declaration with "let" keyword.
 
