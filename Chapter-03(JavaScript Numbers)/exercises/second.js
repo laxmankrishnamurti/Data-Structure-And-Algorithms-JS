@@ -1,3 +1,5 @@
+//Print all prime number from 2 to n; where n is a input value
+
 function primeNumbersLessThanN(n) {
     for (let i = 0; i < n; i++) {
         if (isPrime(i)) {
@@ -20,7 +22,7 @@ function isPrime(input) {
         }
     }
 
-    if (input > 3) return true
+    return true
 
 }
 
