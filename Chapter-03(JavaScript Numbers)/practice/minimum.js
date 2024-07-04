@@ -31,3 +31,5 @@ console.log(Number.MIN_VALUE)   //Outpu :: 5e-324
 console.log((Number.MIN_VALUE - 1) === -1)  //Output :: true 
 
 //closest to the Zero; 0 - 1 = -1 === -1 (true)
+
+//Note :- MIN_VALUE is grater than MIN_SAFE_INTEGER
