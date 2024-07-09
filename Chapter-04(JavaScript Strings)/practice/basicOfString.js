@@ -92,3 +92,24 @@ console.log("90 :: ", str.startsWith("In")); //output : fasle
 console.log("90 :: ", str.startsWith("Most")); //output : true
 console.log("91 :: ", str.endsWith("sdf")); //output : false
 console.log("92 :: ", str.endsWith("fds")); //output : false
+
+/**
+ * String Decomposition
+ */
+
+let userInfo = "Laxman";
+console.log("101 :: ", userInfo.split("")); //output : 101 ::  [ 'L', 'a', 'x', 'm', 'a', 'n' ]
+
+let user = "Laxman Krishnamurt";
+console.log("102 :: ", user.split("a")); //output : 102 ::  [ 'L', 'xm', 'n Krishn', 'murt' ]
+
+let charSet = "https://github.com/laxmankrishnamurti";
+charSet.replace("github", "google");
+console.log("charSet :: ", charSet);
+
+//output :- charSet :: https://github.com/laxmankrishnamurti
+
+charSet = charSet.replace("github", "google");
+console.log("charSet :: ", charSet);
+
+//output :- charSet :: https://google.com/laxmankrishnamurti

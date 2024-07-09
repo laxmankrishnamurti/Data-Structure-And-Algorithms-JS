@@ -36,3 +36,18 @@ With that we have two pre-built in function that does that particular task.
 
 - If we want to check whether a string starts from a particular string or not or end with a particular string or not, In this
   situation we use <code>.startWith(paramerter)</code> & <code>.endsWith(parameter)</code> - Both function is also a case-sensitive function
+
+## String Decomposition
+
+Decomposition -> Dividing an string into multiple chunks in the form of an array. We use <code>.split(seperator)</code> functon to split a string and convert it into an array format.
+
+```javascript
+let username = "Laxman";
+console.log(username.split(""));
+
+//output : ["L", "a", "x", "m", "a", "n"]
+```
+
+## String replacement
+
+The <code>.replace(string, replaceString)</code> function helps us to replace a specified string within a string variable with another string.
