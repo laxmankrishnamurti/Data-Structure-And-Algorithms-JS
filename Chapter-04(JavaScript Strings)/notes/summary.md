@@ -26,6 +26,7 @@ With that we have two pre-built in function that does that particular task.
 
 - Let say we have to find a particular string within a string. In that case we can use the <code>.indexOf(parameter)</code>.
     - The prameter should be a string and keep in mind that the function is a case-sensitive.
+    - This function will return the position of the input string within the string and if nothing is found, then (-1) is returned.
 
 - Let say we want to search the string after a certain index value then we can pass in optional parameter in the same function.
     - <code>.indexOf(parameter-1, index)</code>
