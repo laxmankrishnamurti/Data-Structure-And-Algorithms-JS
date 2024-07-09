@@ -47,3 +47,12 @@ let i = "asdf"
 let j = "asdg"
 console.log(i > j)  //output : false
 console.log(i < j)  //output : true
+
+
+/**
+ * String Search
+ */
+
+let str = "Most popular statement in Backend development is : Never trust user data"
+
+console.log("57 ::", str.indexOf("Backend"))    //output : 26
