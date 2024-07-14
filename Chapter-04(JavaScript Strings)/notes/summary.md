@@ -51,3 +51,69 @@ console.log(username.split(""));
 ## String replacement
 
 The <code>.replace(string, replaceString)</code> function helps us to replace a specified string within a string variable with another string.
+
+# What is Regular Expressions?
+
+Regular expressions(regexes) are a set of characters that define a search pattern. Regexes are immensely helpful for checking the validity of user input in javascript. Learning how to use regexes is a massive task of its own, but as a javascript developer, it is important us to know the basics of regexes.
+
+- 1. RegExp has the following two functions.
+
+  - search() :: Tests for matches in a string. This returns the index of the match. To be more precise it finds the first substring match in a regular expression search.
+  - match() :: Tests for matches. This return all the matches.
+
+- 2. The JavaScript string object also has the following two regex-related functions that accept the RegExp object as on argument.
+
+  - exec() :: Tests for matches in a string. This returns the first match.
+  - test() :: Tests for matches in a string. This returns boolean value.
+
+- 3. Basic Regex rule ::
+
+  - /regexe/ :: write the Regexes between the forward slash.
+
+  - ^ :: Indicate the start of a string/line.
+
+  - \d :: Finds any digit
+
+  - [ abc ] :: Finds any character between the brackets
+
+  - [^abd] :: Finds any character not between the brackets
+
+  - [0-9] :: Finds any digit between the brackets
+
+  - [^0-9] :: Finds any digit not between the brackets
+
+  - [x|y] :: Finds any of the alternatives specified
+
+```javascript
+var str = "JavaScript DataStructures";
+var n = str.search(/DataStructures/);
+console.log(n);
+
+//output : 11 (Index of the character D, which is the first character of the matched regex)
+```
+
+## Commonly Used Regexes
+
+- 1. Any Numeric Characters
+
+```javascript
+var reg = /\d+/;
+```
+
+- 2. Only Numeric Characters
+
+```javascript
+var reg = /^\d+$/;
+```
+
+- 3. Floating Numeric Characters
+
+```javascript
+var reg = /^[0-9]*\.[0-9]*[0-9]+$/;
+```
+
+- 4. Only Alphanumeric Characters
+
+```javascript
+var reg = /[a-zA-Z0-9]/;
+```
