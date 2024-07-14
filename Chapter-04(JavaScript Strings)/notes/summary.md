@@ -1,4 +1,4 @@
-# what is String?
+## what is String?
 
 String is a collection of characters. In JavaScript, String is an type of Object. JavaScript's native String primitive comes with various common string functioon.
 
@@ -52,7 +52,7 @@ console.log(username.split(""));
 
 The <code>.replace(string, replaceString)</code> function helps us to replace a specified string within a string variable with another string.
 
-# What is Regular Expressions?
+## What is Regular Expressions?
 
 Regular expressions(regexes) are a set of characters that define a search pattern. Regexes are immensely helpful for checking the validity of user input in javascript. Learning how to use regexes is a massive task of its own, but as a javascript developer, it is important us to know the basics of regexes.
 
