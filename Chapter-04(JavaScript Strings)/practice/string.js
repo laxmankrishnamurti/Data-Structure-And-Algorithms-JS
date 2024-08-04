@@ -103,6 +103,8 @@ console.log("101 :: ", userInfo.split("")); //output : 101 ::  [ 'L', 'a', 'x', 
 let user = "Laxman Krishnamurt";
 console.log("102 :: ", user.split("a")); //output : 102 ::  [ 'L', 'xm', 'n Krishn', 'murt' ]
 
+//Here, "a" or "" is called delimiter because based on this the string is going to split.
+
 let charSet = "https://github.com/laxmankrishnamurti";
 charSet.replace("github", "google");
 console.log("charSet :: ", charSet);
