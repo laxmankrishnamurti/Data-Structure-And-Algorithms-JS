@@ -38,3 +38,52 @@ index : 1 value : 2
 index : 2 value : 3
 index : 3 value : 4
 */
+
+/**
+ * For in loop
+ */
+
+let countries = ["India", "Pakistan", "Bangladesh", "Shrilanka", "Nepal"];
+for (let index in countries) {
+  console.log(`index : ${index} vlaue : ${countries[index]}`);
+}
+
+/*
+index : 0 vlaue : India
+index : 1 vlaue : Pakistan
+index : 2 vlaue : Bangladesh
+index : 3 vlaue : Shrilanka
+index : 4 vlaue : Nepal
+*/
+
+/**
+ * For of loop
+ */
+
+for (let element of countries) {
+  console.log(`Element : ${element}`);
+}
+
+/*
+Element : India
+Element : Pakistan
+Element : Bangladesh
+Element : Shrilanka
+Element : Nepal
+*/
+
+/**
+ * forEach loop :- The big difference between forEach and other methods of iteration is that forEach cannot break out of the iteraton or skip certain elements in the array. forEach is more expensive and explicit by going through each element.
+ */
+
+countries.forEach((country, index) => {
+  console.log(`index : ${index} vlaue : ${country}`);
+});
+
+/*
+index : 0 vlaue : India
+index : 1 vlaue : Pakistan
+index : 2 vlaue : Bangladesh
+index : 3 vlaue : Shrilanka
+index : 4 vlaue : Nepal
+*/
