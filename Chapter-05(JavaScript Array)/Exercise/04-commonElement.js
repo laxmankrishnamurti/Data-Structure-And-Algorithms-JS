@@ -29,8 +29,8 @@ function getCommonElement(multiDimenArr) {
 
 let result = getCommonElement([
   [6, 23, 4, 5, 6, 7, 78, 6],
-  [1, 2, 3, 5, 5, 3, 6],
-  [1, 1, 2, 3, 5, 79, 7, 423, 6],
+  [1, 2, 3, 5, 5, 3, 6, 78],
+  [1, 1, 2, 3, 5, 79, 7, 78, 423, 6],
 ]);
 console.log("Common element  :: ", result);
 
