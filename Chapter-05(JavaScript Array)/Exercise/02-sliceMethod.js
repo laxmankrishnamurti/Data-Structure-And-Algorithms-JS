@@ -26,3 +26,6 @@ console.log("getChunk2 :: ", getChunk2);
 
 let getChunk3 = slice(array, 3);
 console.log("getChunk3 :: ", getChunk3);
+
+//Time Complexity = O(n)
+//Space Complexity = O(n) -> For the getSlice variable to hold a copy of array element
