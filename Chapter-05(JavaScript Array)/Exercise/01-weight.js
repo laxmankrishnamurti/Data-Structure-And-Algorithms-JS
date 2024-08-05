@@ -31,7 +31,7 @@ function findSumBetter(arr, weight) {
     console.log(hashTable[currentElement]);
 
     if (hashTable[currentElement] != undefined) {
-      return [i, hashTable[weight - currentElement]];
+      return [hashTable[currentElement], i];
     } else {
       hashTable[difference] = i;
     }
@@ -41,6 +41,6 @@ function findSumBetter(arr, weight) {
   return [-1];
 }
 
-let arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let resutl = findSumBetter(arr2, 15);
+let arr2 = [4, 82, 23, 1, 15, 6, 7, 80, 9, 8];
+let resutl = findSumBetter(arr2, 17);
 console.log("result  :: ", resutl);
