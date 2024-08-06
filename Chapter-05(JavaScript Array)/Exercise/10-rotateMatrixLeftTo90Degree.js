@@ -61,3 +61,8 @@ const getReverse = rotateMatrix90Left(matrix);
 console.log("left by 90 :: ", getReverse);
 
 //Output :  [ [ 9, 8, 7 ], [ 6, 5, 4 ], [ 3, 2, 1 ] ]
+
+/*
+Time Complexity -> O(n)
+Space Complexity -> O(1)
+*/
