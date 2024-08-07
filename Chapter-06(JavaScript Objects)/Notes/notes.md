@@ -54,3 +54,23 @@ console.log(user2.name); //Output : undefined
 ## What is Prototypal Inheritance?
 
 Prototypal inheritace in javascript is a way for objects to share properties and methods when one object is based on another object, it can use the properties and methods of the first object without copying them.
+
+## Constructor and Varibales
+
+- Any properties declared with <code>this.propertyName</code> will be available publicaly. This means that the object's properties can be directly accessed in other scopes.
+
+```javascript
+function UserClass(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const userOne = new UserClass("Kawya Krishnamurti", 21);
+console.log("userOne :: ", userOne);
+
+//Output : userOne ::  UserClass {name: 'Kawya Krishnamurti', age: 21}
+
+//access the public variable that is delcared in the class
+console.log(userOne.name); //Output : Kawya Krishnamurti
+console.log(userOne.age); //Output : 21
+```
