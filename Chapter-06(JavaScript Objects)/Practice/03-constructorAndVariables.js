@@ -75,5 +75,5 @@ instanceOneOfPerson.getSalary(); //Output : undefined
 instanceOneOfPerson.setProfession("Coding");
 instanceOneOfPerson.setSalary(50000);
 
-console.log(instanceOneOfPerson.getProfession());
-console.log(instanceOneOfPerson.getSalary());
+console.log(instanceOneOfPerson.getProfession()); //Output : Coding
+console.log(instanceOneOfPerson.getSalary()); //Output : 50000
