@@ -132,7 +132,7 @@ function getFactorialOfN(5) {
               return (
                 n *
                 function getFactorialOfN(1) {
-                  if (n === 1) {  //Execution will stop here, becasue n = 1;
+                  if (n === 1) {  //Execution will stop here, becasue n = 1 && Base-case is reached
                     return 1;
                   }
                   return n * getFactorialOfN(n - 1);
