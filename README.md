@@ -878,3 +878,33 @@ getFactorialOfN(5);
 - Call Stack Structure
 
 [View on Eraser![](https://app.eraser.io/workspace/uif1hXiIap9Y4m1Qx7HN/preview)](https://app.eraser.io/workspace/uif1hXiIap9Y4m1Qx7HN)
+
+```javascript
+function getNthFibonacciNumberWithRecursion(n) {
+  //Base case
+  if (n <= 1) {
+    return n;
+  }
+
+  return (
+    getNthFibonacciNumberWithRecursion(n - 1) +
+    getNthFibonacciNumberWithRecursion(n - 2)
+  );
+}
+
+let position2 = 3;
+let fibonacciNumberWithRecursion =
+  getNthFibonacciNumberWithRecursion(position2);
+console.log(
+  `${position2}th fibonacci number is : ${fibonacciNumberWithRecursion}`
+);
+```
+
+### Let see how stack will look like in these function calls
+
+stack-06 :: getNthFibonacciNumberWithRecursion(1) -> return 1
+stack-05 :: getNthFibonacciNumberWithRecursion(0) -> return 0
+stack-04 :: getNthFibonacciNumberWithRecursion(1) -> return 1
+stack-03 :: getNthFibonacciNumberWithRecursion(2) -> stack-04 + stack-05
+stack-02 :: getNthFibonacciNumberWithRecursion(3) -> stack-03 + stack-06
+stack-01 :: Global Execution Context
