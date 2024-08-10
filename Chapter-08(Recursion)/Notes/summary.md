@@ -101,3 +101,54 @@ This is how recursion allows the function to correctly compute the factorial, st
 2. The base case is essential because it stops the recursion and provides the initial value that propagates back through all the previous calls.
 
 3. Without reaching the base case, the recursion would continue indefinitely, leading to an infinite loop and eventually causing a stack overflow.
+
+## Let see how the calls will be look like?
+
+- Function calling
+
+```javascript
+function getFactorialOfN(5) {
+  if (n === 1) {
+    return 1;
+  }
+  return (
+    n *
+    function getFactorialOfN(4) {
+      if (n === 1) {
+        return 1;
+      }
+      return (
+        n *
+        function getFactorialOfN(3) {
+          if (n === 1) {
+            return 1;
+          }
+          return (
+            n *
+            function getFactorialOfN(2) {
+              if (n === 1) {
+                return 1;
+              }
+              return (
+                n *
+                function getFactorialOfN(1) {
+                  if (n === 1) {  //Execution will stop here, becasue n = 1;
+                    return 1;
+                  }
+                  return n * getFactorialOfN(n - 1);
+                }
+              );
+            }
+          );
+        }
+      );
+    }
+  );
+}
+
+getFactorialOfN(5);
+```
+
+- Call Stack Structure
+
+[View on Eraser![](https://app.eraser.io/workspace/uif1hXiIap9Y4m1Qx7HN/preview)](https://app.eraser.io/workspace/uif1hXiIap9Y4m1Qx7HN)
