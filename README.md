@@ -908,3 +908,11 @@ stack-04 :: getNthFibonacciNumberWithRecursion(1) -> return 1
 stack-03 :: getNthFibonacciNumberWithRecursion(2) -> stack-04 + stack-05
 stack-02 :: getNthFibonacciNumberWithRecursion(3) -> stack-03 + stack-06
 stack-01 :: Global Execution Context
+
+### Key-Points
+
+1. Each recursive call must be stored in memory untill the base case is resolved. Recursive algorithms take extra memory because of the call stack.
+
+2. Recursive functions have an additional space complexity cost that comes from the recursive calls that need to be stored in the operating system's memory stack. The Stack is accumulated untill the base case is solved. In fact, this is often why an iterative solution may be preferred over the recursive solution.
+
+3. If the base case is implemented incorrectly, the recursive function will cause the program to crash because of a stack overflow error that occurs when there are more than the allowed number of elements in the memory stack.
