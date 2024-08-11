@@ -95,3 +95,7 @@ console.log(`row-${row}, col-${col} :: result ${result}`);
 // Each recursive call adds to the stack.
 // The function returns and removes the top of the stack as each base case is met.
 // The stack eventually empties when the initial call finishes.
+
+/**
+ * If there are two recursive function, the second one will not call untill all calls of first recursive function will not get done.
+ */
