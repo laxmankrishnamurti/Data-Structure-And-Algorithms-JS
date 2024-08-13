@@ -70,7 +70,7 @@ function getNthFibonacciNumberWithRecursion(n) {
   );
 }
 
-let position2 = 3;
+let position2 = 12;
 let fibonacciNumberWithRecursion =
   getNthFibonacciNumberWithRecursion(position2);
 console.log(
