@@ -24,7 +24,7 @@ function convertDecimalToBinary(n) {
   return binaryFormat.join(" ");
 }
 
-let decimalNumber = 50;
+let decimalNumber = 256;
 let binaryFormat = convertDecimalToBinary(decimalNumber);
 console.log(binaryFormat);
 
@@ -44,7 +44,7 @@ function convertDecimalToBinaryWithRecursion(n) {
   return binaryString;
 }
 
-let result = convertDecimalToBinaryWithRecursion(50);
+let result = convertDecimalToBinaryWithRecursion(256);
 console.log("result : ", result);
 
 /**
