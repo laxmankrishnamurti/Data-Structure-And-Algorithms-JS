@@ -109,3 +109,5 @@ GEC
 GEC -> return undefined
 
  */
+
+//Note :- If the second function will change the context value of n the first function is also going to call.
