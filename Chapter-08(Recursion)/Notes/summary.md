@@ -205,9 +205,11 @@ The above explanation that we have discusses(Line-177 to 184) is wrong. Executio
 function fib(n) {
   //Base case
   if (n <= 1) {
+    console.log("Base case hit when n is : ", n);
     return n;
   }
-
-  return fib(n - 1) + fib(n - 2);
+  console.log("n is : ", n);
+  let result = fib(n - 1) + fib(n - 2);
+  console.log("Result is : ", result);
 }
 ```
