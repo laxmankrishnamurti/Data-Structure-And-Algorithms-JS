@@ -177,9 +177,13 @@ console.log(
 ### Let see how stack will look like in these function calls
 
 stack-06 :: getNthFibonacciNumberWithRecursion(1) -> return 1
+<br/>
 stack-05 :: getNthFibonacciNumberWithRecursion(0) -> return 0
+<br/>
 stack-04 :: getNthFibonacciNumberWithRecursion(1) -> return 1
+<br/>
 stack-03 :: getNthFibonacciNumberWithRecursion(2) -> stack-04 + stack-05
+<br/>
 stack-02 :: getNthFibonacciNumberWithRecursion(3) -> stack-03 + stack-06
 stack-01 :: Global Execution Context
 
