@@ -812,7 +812,7 @@ Base case hit when n is : 1
 Result is : 2
 Result is : 5
 
-# In Short
+## In Short
 
 assume, fact(5) = fib(5)
 
@@ -825,3 +825,151 @@ fact(5)
 - fact(5) = fact(4) + fact(3) = 3 + 2 => return 5
 
 - 5th Fibonacci number is =====> 5
+
+# FINAL CALL
+
+## Let’s break it down and go step by step to understand how the values get computed and passed up through the stack.
+
+### Key Concept: Each Function Call Has Its Own Stack Frame
+
+1. When a function is called, it creates a new stack frame in the call stack.
+2. Each stack frame stores its own local variables, including function arguments and return values.
+3. When a function completes (i.e., returns a value), its stack frame is popped from the stack, and control goes back to the function that called it, along with the returned value.
+
+#### Example: fib(5)
+
+- Let’s follow the recursion for fib(5) step by step:
+
+  - fib(5) gets called:
+
+    - It needs to compute fib(4) + fib(3), so it pauses and calls fib(4) first.
+
+  - Call fib(4):
+
+    - fib(4) needs to compute fib(3) + fib(2), so it pauses and calls fib(3) first.
+
+  - Call fib(3):
+
+    - fib(3) needs to compute fib(2) + fib(1), so it pauses and calls fib(2) first.
+
+  - Call fib(2):
+
+    - fib(2) needs to compute fib(1) + fib(0), so it pauses and calls fib(1) first.
+
+  - Call fib(1):
+
+    - fib(1) hits the base case, so it immediately returns 1 to fib(2).
+
+  - Return to fib(2):
+
+    - Now fib(2) calls fib(0) to complete its calculation.
+
+  - Call fib(0):
+
+    - fib(0) hits the base case, so it immediately returns 0 to fib(2).
+
+  - Return to fib(2):
+
+    - Now fib(2) has both values: fib(1) = 1 and fib(0) = 0.
+    - It computes fib(2) = 1 + 0 = 1 and returns 1 to fib(3).
+
+  - Return to fib(3):
+
+    - Now fib(3) calls fib(1) to complete its calculation.
+
+  - Call fib(1):
+
+    - fib(1) hits the base case and returns 1 to fib(3).
+
+  - Return to fib(3):
+
+    - Now fib(3) has both values: fib(2) = 1 and fib(1) = 1.
+    - It computes fib(3) = 1 + 1 = 2 and returns 2 to fib(4).
+
+  - Return to fib(4):
+    - Now fib(4) calls fib(2) to complete its calculation.
+
+#### Here’s Where the Key Happens:
+
+- When fib(4) calls fib(2), fib(2) follows the same recursive process, computes its value, and returns it. Even if fib(4) has already indirectly caused fib(2) to be called (through fib(3)), each call to fib(2) creates a new stack frame.
+- Each individual call to fib(2) is independent and is calculated within its own stack frame.
+- eturn to fib(4):
+
+  - fib(4) eventually gets the value of fib(2), computes fib(4) = 2 + 1 = 3, and returns 3 to fib(5).
+
+- Return to fib(5):
+  - Finally, fib(5) calls fib(3) again, which follows the same recursive process, returns its value, and fib(5) can compute fib(5) = 3 + 2 = 5.
+
+### How the Call Stack Passes Values Up:
+
+1. Each time a function call completes (hits a base case or returns), the return value goes back to the caller function.
+2. The caller function is the one that initially paused to make the recursive call. Once it receives the return value, it can continue with the next step of its computation.
+
+So, in this case:
+
+3. When fib(3) returns 2 to fib(4), the call to fib(4) resumes.
+4. When fib(4) completes and returns 3 to fib(5), the call to fib(5) resumes.
+
+The key is that each function has its own stack frame, which means that every time fib(n) calls fib(n-1) or fib(n-2), the function is paused, the new function is computed, and when the new function returns a value, the paused function resumes with the correct result.
+
+### Visualization of Call Stack for fib(5):
+
+```JS
+fib(5)
+  -> fib(4)
+      -> fib(3)
+          -> fib(2)
+              -> fib(1) -> returns 1
+              -> fib(0) -> returns 0
+          fib(2) -> returns 1
+          -> fib(1) -> returns 1
+      fib(3) -> returns 2
+      -> fib(2)
+          -> fib(1) -> returns 1
+          -> fib(0) -> returns 0
+      fib(2) -> returns 1
+  fib(4) -> returns 3
+  -> fib(3)
+      -> fib(2)
+          -> fib(1) -> returns 1
+          -> fib(0) -> returns 0
+      fib(2) -> returns 1
+      -> fib(1) -> returns 1
+  fib(3) -> returns 2
+fib(5) -> returns 5 (Line-931 + Line-938)
+```
+
+The values bubble back up from the base cases (fib(1) and fib(0)), through the call stack, until fib(5) can be fully evaluated.
+
+## Summary :: KEY TAKEAWAYS
+
+1. Before each recursive function call is made, the expression for the function is conceptually expanded to reflect what it needs to calculate.
+
+- When you call a recursive function like fib(5), it first expresses what it needs to calculate (i.e., fib(4) + fib(3)).
+- It then makes recursive calls to compute those smaller values.
+- Once all the smaller values are calculated (eventually reaching the base cases), the function returns back up the call stack, filling in the values at each level.
+
+2. Each recursive call creates a new stack frame, and when a base case is reached, the result returns to the paused caller.
+3. The call stack manages each independent frame and ensures that once a value is returned, the paused function can resume and complete its own calculation.
+4. Even though fib(4) might call fib(3), it won't reuse the value from the previous fib(3)—each call is independent and computed freshly.
+
+This process ensures that the correct values get passed back up through the call stack until the topmost call (fib(5)) gets its final result.
+
+<code>Example :- Start with fib(5): </code>
+
+- The function doesn't directly calculate fib(5). It first "expresses" itself as fib(4) + fib(3).
+- It knows that before it can complete the calculation, it needs to compute fib(4) and fib(3).
+- Similarly, fib(4) doesn't get calculated immediately. It first "expresses" itself as fib(3) + fib(2).
+- Now, the program knows it needs to compute fib(3) and fib(2) to complete the calculation of fib(4).
+- When the function calls fib(1), it directly returns 1 because fib(1) is a base case.
+
+  - Similarly, fib(0) directly returns 0.
+
+- Now that fib(2) knows the values of fib(1) and fib(0):
+
+fib(2) computes fib(2) = 1 + 0 = 1, and returns this value to fib(3).
+Then, fib(3) knows the value of fib(2):
+
+It already has fib(1) (which is 1), so now it computes fib(3) = 1 + 1 = 2, and returns this value to fib(4).
+
+- This process continues until the original call fib(5) can compute its final result.
