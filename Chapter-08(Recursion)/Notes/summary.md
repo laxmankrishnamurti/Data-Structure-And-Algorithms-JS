@@ -197,6 +197,17 @@ stack-01 :: Global Execution Context
 
 4. Hence, Base-case should be well-implemented.
 
-## How function get executed in Recursive call.
+## How function get executed in Recursive function.
 
-The above explanation that we have discusses(Line-177 to 184) is wrong.
+The above explanation that we have discusses(Line-177 to 184) is wrong. Execution of a recursive function does not happen like that. Let see by taking the same function.................
+
+```js
+function fib(n) {
+  //Base case
+  if (n <= 1) {
+    return n;
+  }
+
+  return fib(n - 1) + fib(n - 2);
+}
+```
