@@ -914,7 +914,7 @@ The key is that each function has its own stack frame, which means that every ti
 
 ### Visualization of Call Stack for fib(5):
 
-```JS
+```js
 fib(5)
   -> fib(4)
       -> fib(3)
