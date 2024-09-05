@@ -192,3 +192,7 @@ stack-01 :: Global Execution Context
 3. If the base case is implemented incorrectly, the recursive function will cause the program to crash because of a stack overflow error that occurs when there are more than the allowed number of elements in the memory stack.
 
 4. Hence, Base-case should be well-implemented.
+
+## How function get executed in Recursive call.
+
+The above explanation that we have discusses(Line-177 to 184) is wrong.
