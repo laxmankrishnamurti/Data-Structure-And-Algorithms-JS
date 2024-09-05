@@ -202,14 +202,612 @@ stack-01 :: Global Execution Context
 The above explanation that we have discusses(Line-177 to 184) is wrong. Execution of a recursive function does not happen like that. Let see by taking the same function.................
 
 ```js
-function fib(n) {
+function fact(n) {
   //Base case
   if (n <= 1) {
     console.log("Base case hit when n is : ", n);
     return n;
   }
   console.log("n is : ", n);
-  let result = fib(n - 1) + fib(n - 2);
+  let result = fact(n - 1) + fact(n - 2);
   console.log("Result is : ", result);
+  return result;
 }
 ```
+
+#### 1. Call-Stack Diagram
+
+fact (5)
+anonymous
+
+#### 1. Console
+
+n is : 5
+
+#### 2. Call-Stack Diagram
+
+fact(4)
+fact(5)
+anonymous
+
+#### 2. Console
+
+n is : 5
+n is : 4
+
+#### 3. Call-Stack Diagram
+
+fact(3)
+fact(4)
+fact(5)
+anonymous
+
+#### 3. Console
+
+n is : 5
+n is : 4
+n is : 3
+
+#### 2. Call-Stack Diagram
+
+fact(2)
+fact(3)
+fact(4)
+fact(5)
+anonymous
+
+#### 2. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+
+#### 1. Call-Stack Diagram
+
+fact(1)
+fact(2)
+fact(3)
+fact(4)
+fact(5)
+anonymous
+
+#### 1. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+
+- Base case hit. Hence, fact(1) returns 1.
+
+```js
+let result = 1 + fact(n - 2);
+```
+
+#### 1. Once a function returns a value it will unwinded from the call stack. Now, the call stack is looking like this :-
+
+fact(2)
+fact(3)
+fact(4)
+fact(5)
+anonymous
+
+- Now, it's time to run the second function which is <code>fact(n-2)</code>
+
+#### 0. Call Stack
+
+fact(0)
+fact(2)
+fact(3)
+fact(4)
+fact(5)
+anonymous
+
+#### 0. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+
+- The function <code>fact(n-2)</code> will return 0 and will unwind from the call stack.
+
+```js
+let result = 1 + 0; //Result = 1
+```
+
+<code>Result executed First time.</code>
+
+#### 0. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+
+```js
+function fact(n) {
+  //Base case
+  if (n <= 1) {
+    console.log("Base case hit when n is : ", n);
+    return n;
+  }
+  console.log("n is : ", n);
+  let result = fact(n - 1) + fact(n - 2);
+  console.log("Result is : ", result);
+  return result;
+}
+```
+
+You Probabily might be thinking that after printing the result value the function will return the result value. If it will happen then all stack will wind-up. But, it will never unwind like this. Because the function will not return any kind of statement or values untill all execution of the program will not be completed. If function wants to do that first of all it must unwind all above call stack because it is the parent function or we can say that it is the parent call-stack.
+
+#### 3. Call Stack
+
+fact(3)
+fact(4)
+fact(5)
+anonymous
+
+- Now, it's time to run the second function <code>fact(n-2)</code>
+
+#### 1. Now, the call Call Stack will look like.
+
+fact(1)
+fact(3)
+fact(4)
+fact(5)
+anonymous
+
+- Base case hit when n is 1.
+
+```js
+let result = fact(n - 1) + 1;
+let result = 1 + 1; // result = 2
+```
+
+#### 1. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+
+#### 3. Call Stack
+
+fact(3)
+fact(4)
+fact(5)
+anonymous
+
+#### 3. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+
+#### 4. Call Stack
+
+fact(4)
+fact(5)
+anonymous
+
+- Now, it's time to run the second function <code>fact(n-2)</code>
+
+#### 2. Call Stack
+
+fact(2)
+fact(4)
+fact(5)
+anonymous
+
+#### 2. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+
+<code>When the context value will change the function will re-run again from top to bottom. Previously the context value is 4. Now, the second function has changed the context value from 4 to 2. It means the printing statement will print the context value because it has been executed prevously when the context value is 2. Now the question is that why the printing statement will not print the context value when second function is executing.</code>
+
+<code>The answer is simple, because before reching the printing statement the second function has been already returned a value and the context value will remain same on which the statement has been already executed.</code>
+
+#### 1. Call Stack
+
+fact(1)
+fact(2)
+fact(4)
+fact(5)
+anonymous
+
+#### 1. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+
+#### 2. Now, the Call Stack will look like
+
+fact(2)
+fact(4)
+fact(5)
+anonymous
+
+- Base case hit, the first function <code>fact(n-1)</code> will return 1.
+
+```js
+let result = 1 + fact(n - 2);
+```
+
+- Now, its time to run the second function <code>fact(n-2)</code>
+
+#### 0. Call Stack
+
+fact(0)
+fact(2)
+fact(4)
+fact(5)
+anonymous
+
+#### 0. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+
+- Base case hit, the second function will return 0.
+
+```js
+let result = 1 + 0; // Result = 1
+```
+
+#### 2. Call Stack
+
+fact(2)
+fact(4)
+fact(5)
+anonymous
+
+#### 2. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+
+#### 4. Call Stack
+
+fact(4)
+fact(5)
+anonymous
+
+#### 4. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Result is : 3
+
+#### 5. Call Stack
+
+fact(5)
+anonymous
+
+<code>Above two call stack is unwinded because both are executed.</code>
+
+- Its time to run the second function <code>fact(n-2)</code>
+
+#### 3. Call Stack
+
+fact(3)
+fact(5)
+anonymous
+
+#### 3. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Result is : 3
+n is : 3
+
+<code>Now, the second function has changed the context value. So, the whole function is going to re-run again.</code>
+
+#### 2. Call Stack
+
+fact(2)
+fact(3)
+fact(5)
+anonymous
+
+#### 2. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Result is : 3
+n is : 3
+n is : 2
+
+#### 1. Call Stack
+
+fact(1)
+fact(2)
+fact(3)
+fact(5)
+anonymous
+
+#### 1. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Result is : 3
+n is : 3
+n is : 2
+Base case hit when n is : 1
+
+```js
+let result = 1 + fact(n - 2);
+```
+
+#### 2. Call Stack
+
+fact(2)
+fact(3)
+fact(5)
+anonymous
+
+- Now, its time to run the second function <code>fact(n-2)</code>
+
+#### 0. Call Stack
+
+fact(0)
+fact(2)
+fact(3)
+fact(5)
+anonymous
+
+#### 0. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Result is : 3
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+
+```js
+let result = 1;
+```
+
+#### 2. Call Stack
+
+fact(2)
+fact(3)
+fact(5)
+anonymous
+
+#### 2. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Result is : 3
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 3
+
+#### 3. Call Stack
+
+fact(3)
+fact(5)
+anonymous
+
+- Its time to run the second function <code>fact(n-2)</code>
+
+#### 1. Call Stack
+
+fact(1)
+fact(3)
+fact(5)
+anonymous
+
+#### 1. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Result is : 3
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+
+```js
+let result = 3;
+```
+
+#### 3. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Result is : 3
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+
+#### 3. Call Stack
+
+fact(3)
+fact(5)
+anonymous
+
+#### 5. Call Stack
+
+fact(5)
+anonymous
+
+#### 5. Console
+
+n is : 5
+n is : 4
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Result is : 3
+n is : 3
+n is : 2
+Base case hit when n is : 1
+Base case hit when n is : 0
+Result is : 1
+Base case hit when n is : 1
+Result is : 2
+Result is : 5
