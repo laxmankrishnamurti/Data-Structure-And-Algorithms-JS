@@ -811,3 +811,17 @@ Result is : 1
 Base case hit when n is : 1
 Result is : 2
 Result is : 5
+
+# In Short
+
+assume, fact(5) = fib(5)
+
+fact(5)
+
+- fact(1) => return 1
+- fact(2) = fact(1) + fact(0) = 1 + 0 => return 1
+- fact(3) = fact(2) + fact(1) = 1 + 1 => return 2
+- fact(4) = fact(3) + fact(2) = 2 + 1 => return 3
+- fact(5) = fact(4) + fact(3) = 3 + 2 => return 5
+
+- 5th Fibonacci number is =====> 5
