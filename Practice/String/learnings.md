@@ -3,7 +3,8 @@
 The regular expression /[^a-zA-Z0-9]/g in the replace function is used to remove all characters from a string that are not alphanumeric (i.e., not letters or numbers). Let's break down the regex and how it works:
 
 1. /[^a-zA-Z0-9]/
-   - []: Square brackets define a character set. Any character inside the square brackets is allowed (matched). For example, [a-z] means "any lowercase letter from 'a' to 'z'."
+   - // ===> RegEx starting and ending point
+   - [] ===> Square brackets define a character set. Any character inside the square brackets is allowed (matched). For example, [a-z] means "any lowercase letter from 'a' to 'z'."
    - a-zA-Z0-9: This is the set of allowed characters.
      - a-z: Matches any lowercase letter (a to z).
      - A-Z: Matches any uppercase letter (A to Z).
