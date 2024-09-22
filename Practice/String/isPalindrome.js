@@ -22,7 +22,6 @@ var isPalindrome = function (s) {
   for (let i = phrase.length - 1; i >= 0; i--) {
     reversePhrase += phrase.charAt(i);
   }
-  console.log("ReversePhrase : ", reversePhrase);
 
   if (phrase === reversePhrase) {
     return true;
