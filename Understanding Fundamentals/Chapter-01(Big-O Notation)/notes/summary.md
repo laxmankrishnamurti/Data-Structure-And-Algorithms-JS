@@ -6,7 +6,7 @@ The Big-O Notation measures the worst-case complexity of an algorithm. In Big-O 
 
 # What does it mean by "Worst-case complexity"?
 
-It refers to the maximum amount of time or resources(such as memory) that an algorithm will require to complete its task.
+It refers to the maximum amount of time(& number of iterations or operations) or resources(such as memory) that an algorithm will require to complete its task.
 
 # Common Big-O complexities.
 
