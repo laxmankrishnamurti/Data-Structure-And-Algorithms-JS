@@ -142,3 +142,33 @@ int main(){
     return 0;
 }
 ```
+
+# Data Types
+
+Before storing any kind of value in the memory computer should know the type of data so that according to its size it can allot memory to them.
+
+There are three types of data-type in every programming language, they are:
+
+1. Primitive/Built-in/Fundamental data type ===> are those which comes with the language itself.
+
+- Integer
+- Character
+- Boolean
+- Floating Point
+- Double Floating Point
+- Void
+- Wide character(string)
+
+2.  Non-primitive/Derived data type ===> As per their name suggest it is a kind of derived unit/data tpes. It is derived by _primitive data types_.
+
+- Function
+- Array
+- Pointer
+- Reference
+
+3.  Abstract/User-defined data types
+
+- Class
+- Structure
+- Union
+- Enumeration
