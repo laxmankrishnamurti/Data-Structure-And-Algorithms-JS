@@ -515,7 +515,7 @@ For any data structure, developers are interested in time and space complexity a
 
 // And doing practice on arrays, jagged array.
 
-# Chapter - 06 (JavaScript Oject)
+# Chapter - 06 (JavaScript Object)
 
 ## What is Prototype?
 
