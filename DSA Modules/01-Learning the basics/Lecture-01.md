@@ -25,3 +25,10 @@ There several methods in console object for example :-
 - console.error(message) ===> To display errors on the console.
 - console.warn(message) ===> To diaply warnings on the console.
 - console.info(value) ===> It's a way to differentiate between regular logging (console.log) and messages that are meant to convey general information or updates.
+
+```javascript
+console.log("This is a regular log message"); ===> Align with terminal color
+console.info("This is an informational message"); ===> No color (But some browser marked with blue color)
+console.warn("This is a warning message"); ===> Marked with yellow color
+console.error("This is an error message"); ===> Marked with red color
+```
