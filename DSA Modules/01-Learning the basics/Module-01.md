@@ -80,3 +80,51 @@ Built-in object type can be:
 - floatarrays
 - promises
   and more......
+
+```javascript
+//Numbers
+let price = 100;
+const age = 21;
+
+//String
+let username = "Laxman Krishnamurti";
+
+//Booleans
+let isLoggedIn = true;
+
+//Object
+const user = {
+  name: "Laxman Krishnamurti",
+  age: 21,
+  email: "laxmankrishnamurti@gmail.com",
+};
+
+//Array
+const marks = [91, 98, 85, 75, 89];
+
+//Date Object
+const date = new Date();
+
+//undefined ===> Variable is declared but value is not defined.
+//null ===> Variable is defined but value is still empty.
+```
+
+<code>JavaScript variable can hold any type of data.</code>
+
+- <code>When adding a number and a string, JavaScript will treat the number as string.</code>
+
+```js
+let val = 21 + "laxman"; //Output :- 21laxman
+let val = "laxman" + 21; //Output :- laxman21
+```
+
+- <code>JavaScript evaluates expressions from left to right. Different sequences can produce different results:</code>
+
+```js
+console.log(10 + 20 + 30 + "laxman" + 21 + 10); // Output : 60laxman2110
+console.log("laxman" + 21 + 10); // Output : laxman2110
+```
+
+The right part from the string will treated as a string not a number. Hence, it will concatinate like a string.
+
+If the operand is a string then after that all values are treated as a string.
