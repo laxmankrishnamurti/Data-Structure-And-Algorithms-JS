@@ -28,31 +28,57 @@
     // let x = BigInt("123456789012345678901234567890");
     // console.log("x is", x)
     // console.log(typeof x)
-    switch(new Date().getDay()){
-        case 0:
-            console.log("Sunday");
-            break;
-        case 1:
-            console.log("Monday");
-            break;
-        case 2:
-            console.log("Tuesday");
-            break;
-        case 3:
-            console.log("Wednesday");
-            break;
-        case 4:
-            console.log("Thursday");
-            break;
-        case 5:
-            console.log("Friday");
-            break;
-        case 6:
-            console.log("Saturday");
-            break;
+    // switch(new Date().getDay()){
+    //     case 0:
+    //         console.log("Sunday");
+    //         break;
+    //     case 1:
+    //         console.log("Monday");
+    //         break;
+    //     case 2:
+    //         console.log("Tuesday");
+    //         break;
+    //     case 3:
+    //         console.log("Wednesday");
+    //         break;
+    //     case 4:
+    //         console.log("Thursday");
+    //         break;
+    //     case 5:
+    //         console.log("Friday");
+    //         break;
+    //     case 6:
+    //         console.log("Saturday");
+    //         break;
 
-        default:
-            console.log("invalid input!")
+    //     default:
+    //         console.log("invalid input!")
+    // }
+
+    // console.log(Object.getOwnPropertyNames(String.prototype))
+    // console.log(Object.getOwnPropertyNames(Number.prototype))
+    // console.log(Object.getOwnPropertyNames(Array.prototype))
+
+    function Admin(name, role, age){
+        this.name = name
+        this.role = role
+        this.age = age
     }
+    Admin.prototype.addAdmins = () => {
+        console.log(`${this.name} is added as admin`)
+    }
+
+    function User(name){
+        this.name = name;
+    }
+
+    let admin1 = new Admin("Laxman", "admin", 21)
+    console.log("admin1 info", admin1)
+
+    let user1 = new User("Kawya Krishnamurti")
+    console.log("user1 info", user1)
+    // user1.addAdmins()
+    admin1.addAdmins()
+
 </script>
 </html>

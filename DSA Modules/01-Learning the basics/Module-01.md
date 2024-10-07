@@ -81,6 +81,8 @@ Built-in object type can be:
 - promises
   and more......
 
+<code>There are lots of methods, provided by JavaScript, which is associated with these data types</code>
+
 ```javascript
 //Numbers
 let price = 100;
@@ -315,3 +317,162 @@ switch (age) {
 - If multiple cases matches a case value, the first case is selected.
 - If no matching cases are found, the program continues to the default label.
 - If no default label is found, the program continues to the statement(s) after the switch.
+
+## Arrays
+
+- Arrays are just like a vairble but rather than storing a single value it can store multiple values.
+- It uses indexing to find the value in his bucket which has O(1).
+- Indexing starts from 0.
+- There are lots of methods, provided by JavaScript, are associated with an Array Object.
+
+```js
+let users = ["Laxman", "Anjali", "Fruti", "Vikram"];
+console.log(users[2]); //Output : Fruti
+
+users.push("Kawya Krishnamurti"); //adds the element to the last position
+users.pop("Kawya Krishnamurti"); //remove and return the last element
+users.find((ele, inde) => {
+  return ele;
+}); //Advance methods
+```
+
+## How do we know how many methods are there which is associated with the data - types?
+
+Using _prototype_ properties.
+
+```js
+console.log(Object.getOwnPropertyNames(String.prototype));
+
+//Output ===>
+(52)[
+  ("length",
+  "constructor",
+  "anchor",
+  "at",
+  "big",
+  "blink",
+  "bold",
+  "charAt",
+  "charCodeAt",
+  "codePointAt",
+  "concat",
+  "endsWith",
+  "fontcolor",
+  "fontsize",
+  "fixed",
+  "includes",
+  "indexOf",
+  "isWellFormed",
+  "italics",
+  "lastIndexOf",
+  "link",
+  "localeCompare",
+  "match",
+  "matchAll",
+  "normalize",
+  "padEnd",
+  "padStart",
+  "repeat",
+  "replace",
+  "replaceAll",
+  "search",
+  "slice",
+  "small",
+  "split",
+  "strike",
+  "sub",
+  "substr",
+  "substring",
+  "sup",
+  "startsWith",
+  "toString",
+  "toWellFormed",
+  "trim",
+  "trimStart",
+  "trimLeft",
+  "trimEnd",
+  "trimRight",
+  "toLocaleLowerCase",
+  "toLocaleUpperCase",
+  "toLowerCase",
+  "toUpperCase",
+  "valueOf")
+];
+```
+
+There are over 52 methods are there which is associated with the string.
+
+```js
+console.log(Object.getOwnPropertyNames(Number.prototype));
+
+//Output ===>
+(7)[
+  ("constructor",
+  "toExponential",
+  "toFixed",
+  "toPrecision",
+  "toString",
+  "valueOf",
+  "toLocaleString")
+];
+```
+
+```js
+console.log(Object.getOwnPropertyNames(Array.prototype));
+
+//Output
+(40)[
+  ("length",
+  "constructor",
+  "at",
+  "concat",
+  "copyWithin",
+  "fill",
+  "find",
+  "findIndex",
+  "findLast",
+  "findLastIndex",
+  "lastIndexOf",
+  "pop",
+  "push",
+  "reverse",
+  "shift",
+  "unshift",
+  "slice",
+  "sort",
+  "splice",
+  "includes",
+  "indexOf",
+  "join",
+  "keys",
+  "entries",
+  "values",
+  "forEach",
+  "filter",
+  "flat",
+  "flatMap",
+  "map",
+  "every",
+  "some",
+  "reduce",
+  "reduceRight",
+  "toReversed",
+  "toSorted",
+  "toSpliced",
+  "with",
+  "toLocaleString",
+  "toString")
+];
+```
+
+# Understanding the nature of JavaScript.
+
+JavaScript is typically a prototype based language. For understanding, we can call it as an Object-Oriented-Programming language.
+
+Prototype ===> An object has access of some other objects' property and methods, the referenced object is called as the prototype of the object which is referencing to the object.
+
+```js
+function Admin() {
+  cons;
+}
+```
