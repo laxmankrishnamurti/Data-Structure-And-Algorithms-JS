@@ -208,3 +208,110 @@ console.log("x is", x); //Output : x is 123456789012345678901234567890n
 let x = BigInt("123456789012345678901234567890");
 console.log(typeof x); //Output : bigint
 ```
+
+## If-else statement :: Conditional logic
+
+```js
+//Simple if-else statement
+if(){
+  //do this
+}else {
+  //do this
+}
+
+// Complex nesting
+if(x){
+  if(){
+    if(){
+
+    }else {
+
+    }
+  }else if(){
+
+  }else{
+
+  }
+}else if(){
+  if(){
+
+  }else {
+
+  }
+}else {
+
+}
+```
+
+## Switch Statement
+
+- Works same as if-else statement but porvides a better way to write conditional logics.
+- Switch cases use strict comparison (===). It means a case will only true if both type and values are same.
+
+```js
+switch (new Date().getDay()) {
+  case 0:
+    console.log("Sunday");
+    break;
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  case 3:
+    console.log("Wednesday");
+    break;
+  case 4:
+    console.log("Thursday");
+    break;
+  case 5:
+    console.log("Friday");
+    break;
+  case 6:
+    console.log("Saturday");
+    break;
+
+  default:
+    console.log("invalid input!");
+}
+```
+
+If _default_ is not the last case in the switch block, remember to end the default case with a break.
+
+```js
+switch (new Date().getDay()) {
+  default:
+    console.log("invalid input!");
+    break;
+  case 5:
+    console.log("Friday");
+  case 6:
+    console.log("Saturday");
+}
+```
+
+<code>Multiple case can use the same code block</code>
+
+```js
+let age = 20;
+switch (age) {
+  case 10:
+  case 12:
+  case 17:
+    console.log("You are not eligible");
+    break;
+  case 18:
+  case 20:
+    console.log("You are eligible");
+    break;
+  default:
+    console.log("Invalid input!");
+}
+```
+
+#### Switching details
+
+- If multiple cases matches a case value, the first case is selected.
+- If no matching cases are found, the program continues to the default label.
+- If no default label is found, the program continues to the statement(s) after the switch.
