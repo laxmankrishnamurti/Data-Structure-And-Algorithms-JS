@@ -117,6 +117,8 @@ x = ""; //Value is "" and the type is undefined
 x = 21; //number
 x = "Laxman Krishnamurti"; //string
 x = true; //boolean
+x = ""; //Output :- boolean ===> false
+x = " "; //Output :- boolean ==> true
 x = {
   //Object
   name: "Laxman Krishnamurti",
