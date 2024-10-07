@@ -109,7 +109,24 @@ const date = new Date();
 //null ===> Variable is defined but value is still empty.
 ```
 
-<code>JavaScript variable can hold any type of data.</code>
+<code>JavaScript variable can hold any type of data. Hence, we can say that javascript types are dynamic</code>
+
+```js
+let x; //undefined
+x = ""; //Value is "" and the type is undefined
+x = 21; //number
+x = "Laxman Krishnamurti"; //string
+x = true; //boolean
+x = {
+  //Object
+  name: "Laxman Krishnamurti",
+  age: 21,
+};
+x = () => {
+  //function
+  console.log("Hii there! what's up!");
+};
+```
 
 - <code>When adding a number and a string, JavaScript will treat the number as string.</code>
 
@@ -128,3 +145,64 @@ console.log("laxman" + 21 + 10); // Output : laxman2110
 The right part from the string will treated as a string not a number. Hence, it will concatinate like a string.
 
 If the operand is a string then after that all values are treated as a string.
+
+1. String
+
+- Collection of characters
+- With double or single quotes.
+- We can use quotes inside a string, as long as they don't match the quotes surrounding the string:
+
+```js
+console.log("It's a must!") ===> Correct
+console.log('It's a must!') ===> inCorrect
+```
+
+2. Number
+
+All javascript numbers are stored as decimal numbers(floating point). Numbers can be written with, or without decimals.
+
+```js
+let age = 21;
+let age = 21.0;
+```
+
+3. Exponential Notation
+
+Extra large or extra small numbers can be written with scientific (exponential) notatio.
+
+```js
+let num = 21e1; //Output : 210
+let num = 21e10; //Output : 210000000000
+let num = 21e-10; //Output : 21/10000000000 ===> 2.1e-9 (2.1 * 10^-9) or (2.1e-9)
+```
+
+<pre>
+  Note
+  Most programming languages have many number types:
+
+  Whole numbers (integers):
+  byte (8-bit), short (16-bit), int (32-bit), long (64-bit)
+
+  Real numbers (floating-point):
+  float (32-bit), double (64-bit).
+
+  Javascript numbers are always one type:
+  double (64-bit floating point).
+
+</pre>
+
+4. JavaScript BigInt
+
+All JavaScript numbers are stored in 64-bit floating-point format. JavaScript BigInt is a new datatype (ES2020) that can be used to store integer values that are too big to be represented by a normal JavaScript Number.
+
+```js
+let x = BigInt("123456789012345678901234567890");
+console.log("x is", x); //Output : x is 123456789012345678901234567890n
+```
+
+<code>We can use the JavaScript _typeof_ operator to find the type of a JavaScript variable.</code>
+
+```js
+let x = BigInt("123456789012345678901234567890");
+console.log(typeof x); //Output : bigint
+```
