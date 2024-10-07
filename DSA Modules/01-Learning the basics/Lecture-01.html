@@ -63,22 +63,27 @@
         this.name = name
         this.role = role
         this.age = age
-    }
-    Admin.prototype.addAdmins = () => {
-        console.log(`${this.name} is added as admin`)
+        Admin.prototype.addAdmins = () => {
+            console.log(`${this.name} is added as admin`)
+        }
     }
 
     function User(name){
         this.name = name;
     }
 
-    let admin1 = new Admin("Laxman", "admin", 21)
+    const admin1 = new Admin("Laxman", "admin", 21)
     console.log("admin1 info", admin1)
 
     let user1 = new User("Kawya Krishnamurti")
     console.log("user1 info", user1)
-    // user1.addAdmins()
     admin1.addAdmins()
+    // user1.addAdmins() //Lecture-01.html:119 Uncaught TypeError: user1.addAdmins is not a function
+
+    //As of now user1 object dosen't have the access of the addAdmins() method to use. 
+
+    User.prototype = Object.create(Admin.prototype)
+    console.log(user1.role)
 
 </script>
 </html>
