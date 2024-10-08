@@ -526,3 +526,39 @@ In this scenario we have declared a string so JavaScript engine add the String O
 4. Executed
 5. Wrapper unwinded
 6. Now, the type will become primitive again.
+
+## Ways to achieve inheritance
+
+1. First
+
+```js
+Object2.prototype = Object.create(Object1.prototype);
+```
+
+2. Second
+
+```js
+function Object2(name, age) {
+  Object1.call(this, name, age);
+}
+```
+
+3. Third
+
+```js
+function Object2(name, age) {
+  Object1.apply(this, name, age);
+}
+```
+
+4. ES6 Module
+
+```js
+class Object2 extends Object1 {
+  constructor(name, age) {
+    super(name, age); // Calls Object1's constructor
+  }
+}
+```
+
+These are different methods to achieve inheritance, and class is often preferred for its simplicity in modern JavaScript.
