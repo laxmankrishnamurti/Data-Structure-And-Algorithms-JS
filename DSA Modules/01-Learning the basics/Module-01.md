@@ -647,3 +647,55 @@ In JavaScript there are three types of functions and each function have kinds ty
   ```
 
 <code>Arrow function's _this_ value is limited to their lexical scope in which it is declared.</code>
+
+# Time Complexity
+
+The rate at which the time, required to run a code, chagnes with respect to the input size, is considered the time Complexity.
+
+Basically, the time complexity of a particular code depends unpon the input size.
+
+**How we will represent the time complexity of any code:**
+
+To represent the time complexity, we generally use the Big O notation. The Big O notation looks like the following:
+
+_O() ===> Time taken by the code(inside the parenthesis)_
+
+```js
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+```
+
+<code>The time complexity for this code will be nothing but the number of steps, this code will take to be executed. So, if we write this in terms of Big O notation, it will be like O(no. of steps).</code>
+
+Let's observe the step for this code:
+
+1. Initialization
+2. Comparison
+3. Printing
+4. Increment
+
+It will keep until the value of i will not reach at 10. Let's count the time complexity(the number of steps that the code is taken)
+
+Three commong steps ===> Initialization, Comparison, Printing (3-step each time for 10 times)
+Total number of steps ===> 10 \* 3 = 30
+Time Complexity ===> O(30)
+
+N istead of 10
+Time Complexity ====> O(3\*n)
+
+## Here come the three rules, that we are going to follow while calculating the time complexity:
+
+- We will always calculate the time complexity for the worst-case scenario.
+- We will avoid including the constant terms.
+- We will also avoid the lower values.
+
+# Space Complexity
+
+The term space complexity generally refers to the memory space that a code uses while being executed. Again space complexity is also dependent on the machine and so we are going to represent the space complexity using the Big O notation instead of using the standard units of memory like MB, GB, etc.
+
+<code>Space complexity generally represents the summation of auxiliary space and the input space. Auxiliary space refers to the space that we use additionally to solve a problem. And input space refers to the space that we use to store the inputs.</code>
+
+# Points to remember
+
+In competitive programming or in the platforms like Leetcode and GeeksforGeeks, we generally run our codes on online servers. Most of these servers execute roughly 108 operations in approximately 1 second i.e. 1s. We must be careful that if the time limit is given as 2s the operations in our code must be roughly 2*108, not 1016. Similarly, 5s refers to 5*108. Simply, if we want our code to be run in 1s, the time complexity of our code must be around O(108) avoiding the constants and the lower values.
