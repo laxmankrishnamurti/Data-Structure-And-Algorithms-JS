@@ -59,31 +59,27 @@
     // console.log(Object.getOwnPropertyNames(Number.prototype))
     // console.log(Object.getOwnPropertyNames(Array.prototype))
 
-    function Admin(name, role, age){
+    function Admin(name, age){
         this.name = name
-        this.role = role
         this.age = age
-        Admin.prototype.addAdmins = () => {
-            console.log(`${this.name} is added as admin`)
+        Admin.prototype.getUsername = function() {
+            console.log("username is", this.name)
+        }
+        Admin.prototype.addUsers = function(){
+            console.log(`${this.name} can add new members`)
         }
     }
+    const user1 = new Admin("Laxman", 21)
+    console.log("user1", user1)
+    user1.getUsername()
 
     function User(name){
-        this.name = name;
+        this.name = name
     }
-
-    const admin1 = new Admin("Laxman", "admin", 21)
-    console.log("admin1 info", admin1)
-
-    let user1 = new User("Kawya Krishnamurti")
-    console.log("user1 info", user1)
-    admin1.addAdmins()
-    // user1.addAdmins() //Lecture-01.html:119 Uncaught TypeError: user1.addAdmins is not a function
-
-    //As of now user1 object dosen't have the access of the addAdmins() method to use. 
-
     User.prototype = Object.create(Admin.prototype)
-    console.log(user1.role)
-
+    const user2 = new User("Pallavi")
+    user2.getUsername()
+    console.log(user2.name)
+    user2.addUsers()
 </script>
 </html>

@@ -467,12 +467,62 @@ console.log(Object.getOwnPropertyNames(Array.prototype));
 
 # Understanding the nature of JavaScript.
 
-JavaScript is typically a prototype based language. For understanding, we can call it as an Object-Oriented-Programming language.
+JavaScript is typically a prototype based programming language. For understanding, we can call it as an Object-Oriented-Programming language.
 
-Prototype ===> An object has access of some other objects' property and methods, the referenced object is called as the prototype of the object which is referencing to the object.
+Prototype ===> An object has access of some other objects' properties and methods, the referenced object is called as the prototype of the object which is referencing to the object.
 
 ```js
-function Admin() {
-  cons;
+let username = "Laxman Krishnamurti";
+console.log("2nd character", username.charAt(1)); //Output : 2nd character a
+
+function Admin(name, age) {
+  this.name = name;
+  this.age = age;
+  Admin.prototype.getUsername = function () {
+    console.log("username is", this.name);
+  };
+  Admin.prototype.addUsers = function () {
+    console.log(`${this.name} can add new members`);
+  };
 }
+const user1 = new Admin("Laxman", 21);
+console.log("user1", user1); // Output ==> user1 Admin {name: 'Laxman', age: 21}
+user1.getUsername(); //Output ==> username is Laxman
+
+function User(name) {
+  this.name = name;
+}
+User.prototype = Object.create(Admin.prototype);
+const user2 = new User("Pallavi");
+user2.getUsername(); //Output ==> username is Pallavi
+console.log(user2.name); //Output ==> Pallavi
+user2.addUsers(); // Output ==> Pallavi can add new members
 ```
+
+# Now, the question is that we are actually declaring a primitive variable and we haven't created any methods yet so from where these methods are coming?
+
+As we know that JavaScript is a prototype based programming language which means JavaScript provides pre-built methods that we can use on the primitive values to perform some actions.
+
+# How? Lets learn.
+
+When we declare a string variable and try to console it using some methods like this
+
+```js
+let str = "Truth";
+console.log("1st character is", str.chartAt(0));
+
+//Output ===> 1st character is T
+```
+
+Before loading the program into stack first of all the JavaScript engine add a wrapper and this is nothing but the object which type is equal to the type of variable.
+
+In this scenario we have declared a string so JavaScript engine add the String Object wrapper which consists all the string methods which is pre-built so that the engine can interpret that this is a type of string and the string variable is using the _charAt_ method to find characters on a specific location(or index).
+
+## Pattern
+
+1. Type declaration ===> Executed(on user-side) ===> Primitive at this point
+2. JavaScript engine interpret all the types which is declared in the program and initialize the wrapper which consist all methods which is releated to the type
+3. Add the wrapper ===> Now, the variable became the object
+4. Executed
+5. Wrapper unwinded
+6. Now, the type will become primitive again.
