@@ -562,3 +562,88 @@ class Object2 extends Object1 {
 ```
 
 These are different methods to achieve inheritance, and class is often preferred for its simplicity in modern JavaScript.
+
+## Loops
+
+```js
+for (let i = 0; i <= n; i++) {
+  console.log(i);
+}
+
+let i = 0;
+while (i < n) {
+  console.log(i);
+  i--;
+}
+
+let j = 10;
+do {
+  console.log("Hello world!");
+  j--;
+} while (j < n);
+```
+
+# Functions
+
+Functions are block of code that perform some specific task. Function is created for:
+
+1. Modularise Code
+2. Increase Readability
+3. Re-usability
+
+In JavaScript there are three types of functions and each function have kinds types
+
+- Types of Functions
+
+  1. Function declaration
+
+  ```js
+  function sayHello() {
+    console.log("Hello!");
+  }
+  ```
+
+  2. Function expression
+
+  ```js
+  const sayHello = function () {
+    console.log("Hello!");
+  };
+  ```
+
+  3. Arrow function
+
+  ```js
+  const sayHello = () => {
+    console.log("Hello!");
+  };
+  ```
+
+- Kinds of function
+  1. Void function ===> They do not return anything.
+  ```js
+  function sayHello() {
+    console.log("Hello!");
+  }
+  ```
+  2. Return function
+  ```js
+  function sayHello() {
+    return "Hello!";
+  }
+  ```
+  3. Parameterised function
+  ```js
+  function sayHello(name) {
+    console.log(`Hello ${name}`);
+  }
+  ```
+  4. Non-parameterised function
+  ```js
+  function sayHello() {
+    let name = "Laxman";
+    console.log("Hello", name);
+  }
+  ```
+
+<code>Arrow function's _this_ value is limited to their lexical scope in which it is declared.</code>
