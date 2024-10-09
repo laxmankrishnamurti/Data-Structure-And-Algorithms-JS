@@ -104,4 +104,19 @@ function patternNine(n){
         n--;
     }
 }
-patternNine(5)
+// patternNine(5)
+
+function pattern10(n){
+    let input = n;
+    let col = 1;
+    while(input){
+        console.log("*".repeat(col))
+        col++;
+        input--;
+    }
+    while(n-1){
+        console.log("*".repeat(n-1))
+        n--;
+    }
+}
+pattern10(5)
