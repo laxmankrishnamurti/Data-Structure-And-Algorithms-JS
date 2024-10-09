@@ -61,4 +61,15 @@ function pattern6(n = 5){
         n--;
     }
 }
-pattern6(5)
+// pattern6(5)
+
+function pattern7(n){
+    let str = "*"
+    let num = 1;
+    while(n){
+        console.log(" ".repeat(n),str.repeat(num))
+        num += 2;
+        n--;
+    }
+}
+// pattern7(5)
