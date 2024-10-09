@@ -64,12 +64,21 @@ function pattern6(n = 5){
 // pattern6(5)
 
 function pattern7(n){
-    let str = "*"
     let num = 1;
     while(n){
-        console.log(" ".repeat(n),str.repeat(num))
+        console.log(" ".repeat(n),"*".repeat(num))
         num += 2;
         n--;
     }
 }
 // pattern7(5)
+
+function pattern8(n){
+    let space = 0;
+    while(n){
+        console.log(" ".repeat(space),"*".repeat(n+ (n - 1)));
+        space++;
+        n--;
+    }
+}
+pattern8(5)
