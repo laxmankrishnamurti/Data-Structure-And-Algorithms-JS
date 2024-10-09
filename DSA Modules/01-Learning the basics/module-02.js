@@ -76,9 +76,32 @@ function pattern7(n){
 function pattern8(n){
     let space = 0;
     while(n){
-        console.log(" ".repeat(space),"*".repeat(n+ (n - 1)));
+        console.log(" ".repeat(space),"*".repeat(n + (n - 1)));
         space++;
         n--;
     }
 }
-pattern8(5)
+// pattern8(5)
+
+function pattern9(n){
+    pattern7(n)
+    pattern8(n)
+}
+// pattern9(5)
+
+function patternNine(n){
+    let num1 = n;
+    let str1 = 1;
+    while(num1){
+        console.log(" ".repeat(num1 - 1), "*".repeat(str1))
+        str1 += 2;
+        num1--;
+    }   
+    let space = 0;
+    while(n){
+        console.log(" ".repeat(space), "*".repeat(n + (n - 1)))
+        space++;
+        n--;
+    }
+}
+patternNine(5)
