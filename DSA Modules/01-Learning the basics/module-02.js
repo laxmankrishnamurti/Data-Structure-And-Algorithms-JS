@@ -47,4 +47,18 @@ function pattern5(n){
         n--;
     }
 }
-pattern5(5)
+// pattern5(5)
+
+function pattern6(n = 5){
+    let str = "";
+    let i = 1; 
+    while(i <= n){
+        for(let i = 1; i <= n; i++){
+            str += `${i} `;
+        }
+        console.log(str)
+        str = ""
+        n--;
+    }
+}
+pattern6(5)
