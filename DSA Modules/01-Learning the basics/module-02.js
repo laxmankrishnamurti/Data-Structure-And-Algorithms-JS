@@ -119,4 +119,17 @@ function pattern10(n){
         n--;
     }
 }
-pattern10(5)
+// pattern10(5)
+
+function pattern11(n){
+    const arr = [1]
+    let i = 1;
+    while(i <= n){
+        if(i > 1){
+            arr.unshift(i % 2)
+        }
+        console.log(arr.join(" "))
+        i++;
+    }
+}
+pattern11(5)
