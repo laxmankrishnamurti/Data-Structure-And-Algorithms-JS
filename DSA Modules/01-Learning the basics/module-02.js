@@ -132,4 +132,76 @@ function pattern11(n){
         i++;
     }
 }
-pattern11(5)
+// pattern11(5)
+
+function pattern12(n){
+    let num = n;
+    let count = 1;
+    let str = "";
+    let reverse = "";
+    while(count <= num){
+        str += `${count}`
+        reverse = ""
+        for(let i = (str.length - 1); i >= 0; i--){
+            reverse += str.charAt(i)
+        }
+        if(count < n){
+            console.log(str+" ".repeat((n - count) * 2)+reverse)
+        }else {
+            console.log(str+reverse)
+        }
+        count++;
+    }
+}
+// pattern12(4)
+
+function pattern13(n){
+    let num = 1;
+    let row = 1;
+    while(row <= n){
+        let line = ""
+        for(let i = 1; i <= row; i++){
+            line += num + " ";
+            num++
+        }
+        console.log(line)
+        row++;
+    }
+}
+// pattern13(5)
+
+function pattern14(n){
+    let str = "";
+    for(let i = 0; i < n; i++){
+        str += String.fromCharCode(65 + i)
+        console.log(str)
+    }
+}
+// pattern14(5)
+
+function pattern15(n){
+    let str = "";
+    while(n){
+        str = ""
+        for(let i = 0; i < n; i++){
+            str += String.fromCharCode(65 + i)
+        }
+        console.log(str)
+        n--;
+    }
+}
+// pattern15(5)
+
+function pattern16(n){
+    let str = ""
+    let row = 0; 
+    while(row < n){
+        str = ""
+        for(let i = 0; i <= row; i++){
+            str += String.fromCharCode(65 + row)
+        }
+        console.log(str)
+        row++
+    }
+}
+pattern16(5)
