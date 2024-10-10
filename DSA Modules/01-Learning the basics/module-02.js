@@ -339,4 +339,25 @@ function pattern21(n){
         row++;
     }
 }
-pattern21(10)
+// pattern21(10)
+
+function pattern22(n) {
+    let matrix = [];
+    
+    for (let i = 0; i < n; i++) {
+        let row = [];
+        for (let j = 0; j < n; j++) {
+            // Calculate the value based on the minimum distance from edges
+            let value = n - Math.min(i, j, n - 1 - i, n - 1 - j);
+            row.push(value);
+        }
+        matrix.push(row);
+    }
+
+    // Print the matrix
+    for (let i = 0; i < n; i++) {
+        console.log(matrix[i].join(" "));
+    }
+}
+
+pattern22(4);
