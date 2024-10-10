@@ -308,3 +308,20 @@ function bottomRight(n){
     return str
 }
 // pattern19(15)
+
+function pattern20(n){
+    let topLeftStr = topLeft(n-1).split("\n");
+    let topRightStr = topRight(n-1).split("\n");
+    let bottomLeftStr = bottomLeft(n).split("\n");
+    let bottomRightStr = bottomRight(n).split("\n");
+
+    let finalPattern = "";
+    for(let i = 0; i < n; i++){
+        finalPattern += bottomLeftStr[i] + bottomRightStr[i] + "\n"
+    }
+    for(let i = 0;  i < (n-1); i++){
+        finalPattern += topLeftStr[i] + " " + " " + topRightStr[i] + "\n"
+    }
+    console.log(finalPattern)
+}
+pattern20(5)
