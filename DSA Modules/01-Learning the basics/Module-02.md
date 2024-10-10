@@ -228,3 +228,12 @@ C C C
 D D D D
 E E E E E
 </pre>
+
+_17._
+
+<pre>
+   A
+  ABA
+ ABCBA
+ABCDCBA
+</pre>

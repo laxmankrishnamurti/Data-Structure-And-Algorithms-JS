@@ -204,4 +204,25 @@ function pattern16(n){
         row++
     }
 }
-pattern16(5)
+// pattern16(5)
+
+function pattern17(n){
+    let str = "";
+    let reverse = "";
+    let row = 1; 
+    while(row <= n){
+        str = ""
+        for(let i = 0; i < row; i++){
+            str += String.fromCharCode(65 + i)
+        }
+        reverse = ""
+        if(str.length > 1){
+            for(let i = 0; i < (str.length-1); i++){
+                reverse += str.charAt(i)
+            }
+        }
+        console.log(" ".repeat(n - row)+str+reverse)
+        row++
+    }
+}
+pattern17(4)
