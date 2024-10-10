@@ -225,4 +225,86 @@ function pattern17(n){
         row++
     }
 }
-pattern17(4)
+// pattern17(4)
+
+function pattern18(n){
+    let str = "";
+    let reverse = "";
+    let row = 1; 
+    while(row <= n){
+        str = ""
+        reverse = ""
+        for(let i = 1; i <= row; i++){
+            str += String.fromCharCode(65 + (n - i))
+        }
+        for(let i = (str.length-1); i >= 0; i--){
+            reverse += str.charAt(i) + " "
+        }
+        console.log(reverse)
+        row++;
+    }
+}
+// pattern18(5)
+
+function pattern19(n){
+    let topLeftStr = topLeft(n).split("\n");
+    let topRightStr = topRight(n).split("\n");
+    let bottomLeftStr = bottomLeft(n).split("\n");
+    let bottomRightStr = bottomRight(n).split("\n");
+    
+    let finalPattern = "";
+
+    // Merge the top half (topLeft + topRight)
+    for (let i = 0; i < n; i++) {
+        finalPattern += topLeftStr[i] + topRightStr[i] + "\n";
+    }
+
+    // Merge the bottom half (bottomLeft + bottomRight)
+    for (let i = 0; i < n; i++) {
+        finalPattern += bottomLeftStr[i] + bottomRightStr[i] + "\n";
+    }
+
+    console.log(finalPattern);
+}
+
+function topLeft(n){
+    let space = 0;
+    let str = ""
+    while(n){
+        str += `${("*".repeat(n)+" ".repeat(space))}\n`;
+        space++;
+        n--;
+    }
+    return str
+}
+
+function topRight(n){
+    let space = 0;
+    let str = ""
+    while(n){
+        str += `${(" ".repeat(space) + "*".repeat(n))}\n`;
+        n--;
+        space++;
+    }
+    return str
+}
+function bottomLeft(n){
+    let row = 1;
+    let str = ""
+    while(row <= n){
+        str += `${("*".repeat(row) + " ".repeat(n - row))}\n`
+        row++;
+    }
+    return str
+    
+}
+function bottomRight(n){
+    let row = 1; 
+    let str = ""
+    while(row <= n){
+        str += `${(" ".repeat(n - row) + "*".repeat(row))}\n`
+        row++;
+    }
+    return str
+}
+// pattern19(15)
