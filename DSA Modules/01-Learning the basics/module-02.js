@@ -324,4 +324,19 @@ function pattern20(n){
     }
     console.log(finalPattern)
 }
-pattern20(5)
+// pattern20(5)
+
+function pattern21(n){
+    let row = 1;
+    while(row <= n){
+        if(row === 1){
+            console.log("*".repeat(n))
+        }else if(row === n){
+            console.log("*".repeat(n))
+        }else {
+            console.log("*" + " ".repeat(n - 2) + "*")
+        }
+        row++;
+    }
+}
+pattern21(10)
