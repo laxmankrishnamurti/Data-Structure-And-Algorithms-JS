@@ -67,4 +67,4 @@ function lcmAndGcd(a, b){
     return `${lcm} ${gcd}`
 }
 
-console.log(lcmAndGcd(354293,125208))
+// console.log(lcmAndGcd(354293,125208))
