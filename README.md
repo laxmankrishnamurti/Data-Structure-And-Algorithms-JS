@@ -1,3 +1,17 @@
+# Special thanks to ::
+
+- Striver (take U forward)
+
+  - [Checkout the website](https://takeuforward.org/)
+
+- Sammie Bae
+
+  - [Buy the book](https://link.springer.com/book/10.1007/978-1-4842-3988-9)
+
+**_Thanks a lot! शुक्रिया! 🙏_**
+
+---
+
 # Why in Javascript?
 
 The answer is simple because it the only language that can be used to write the entire stack, including the front-end, mobile(native and hybrid) platforms, and back-end. As a Javascript developer it is crucial for me to understand how data structures work and how to design algorithms to build roboust and extendable system.
