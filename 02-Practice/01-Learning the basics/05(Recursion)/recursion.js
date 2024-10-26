@@ -7,4 +7,16 @@ function parentFunction() {
   printOne();
 }
 
-parentFunction();
+// parentFunction();
+
+let i = 1;
+function printTable(n) {
+  if (i === 11) {
+    return;
+  }
+  console.log(n * i);
+  i++;
+  printTable(n);
+}
+
+printTable(2);

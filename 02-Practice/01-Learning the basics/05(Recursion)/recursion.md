@@ -22,7 +22,11 @@ function parentFunction() {
 parentFunction();
 ```
 
-This is a type of _infinite recursion_ because when we run the program it will exceed the stack limit because the _printOne_ function will keep calling itself infinite times.
+This is a type of _infinite recursion_ because when we run the program it will exceed the stack limit because the _printOne_ function will keep calling itself infinite times because there no such condition where function will reach and know this is the point where i should stop the function execution.
+
+**When do we call a function is executed?**
+
+When the last line of the function is executed then we can call the function is executed. But, here after _console.log(1)_ function is waiting for the execution of _printOne()_ and the _printOne()_ itself will also be in the waiting state when it called and the loop will continue until the any function will not return anything.
 
 **_RangeError_: Maximum call stack size exceeded**
 
@@ -52,3 +56,21 @@ There are two main reasons that cause the problem.
 
 - Identify unintended recursive calls or cyclic function calls.
 - Set a proper case while using recursion.
+
+## Recursion with it's base case.
+
+```js
+let i = 1;
+function printTable(n) {
+  if (i === 11) {
+    return;
+  }
+  console.log(n * i);
+  i++;
+  printTable(n);
+}
+
+printTable(2);
+```
+
+Here the function _printTable()_ will keep calling itself until the value of i will not be equal to 11.
