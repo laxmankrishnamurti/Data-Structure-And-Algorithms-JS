@@ -1,22 +1,9 @@
-function printOne() {
-  console.log(1);
-  printOne();
-}
-
-function parentFunction() {
-  printOne();
-}
-
-// parentFunction();
-
-let i = 1;
-function printTable(n) {
-  if (i === 11) {
+function printNos(n) {
+  if (n === 0) {
     return;
   }
-  console.log(n * i);
-  i++;
-  printTable(n);
+  printNos(n - 1);
+  process.stdout.write(" " + n);
 }
 
-printTable(2);
+printNos(5);
