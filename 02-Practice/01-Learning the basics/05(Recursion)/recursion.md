@@ -74,3 +74,40 @@ printTable(2);
 ```
 
 Here the function _printTable()_ will keep calling itself until the value of i will not be equal to 11.
+
+**Now, the question is where does the waiting function is stored?**
+
+- In the stack space.
+  - Yes, when a function is waiting to be executed and inside the function there is one more function that is also waiting to be executed then the first function(parent) will keep in the stack space and will unwinded when the further function is executed. Every parent function will be in the stack space and will have been waiting until its child function will not be executed.
+
+## **How does the memory management work in recursive call?**
+
+1. **Memory stack for recursive call**
+
+   Each time a recursive function calls itself, a new stack frame (or activation record) is created in the call stack. This stack frame stores information like:
+
+   - The current function's parameters
+   - Local variables of the function
+   - Return address (so the program knows where to return control after the function completes.)
+
+   Hence, each stack frame has a temporarily storage location where it can store values for further execution.
+
+2. **Base case and stack unwinding**
+
+   Once the base case is reached, the function starts to return, and each stack frames begins to _unwind_ or be popped off the stack one by one, releasing memory in the reverse order of function.
+
+3. **Handling Return Values in Recursive Calls**
+
+   For cases where a function requires a value that's the result of another function, the stack frames hold onto the values temporarily until the function completes. Here's what happens:
+
+   - If the function has intermediate results it needs to remember, these are stored in the stack frames as they wait for subsequent recursive calls to complete.
+
+   - Once the value is returned to a function, it's either used immediately or stored temporarily (with temporary stack storage, values are only kept while the recursive call chain is active.) if it's needed further in the recursive chain.
+
+4. **Memoization (Optional memory management)**
+   To prevent recalculating values in recursive calls(especially common in case like Fibonacci sequence calculations), memoization if often used.
+
+   - Memoization, by contrast, involves explicitly storing values in a separate data structure outside the stack.
+   - This storage remain available across multiple calls and is used to avoid redundent calculations.
+
+**_With memoization, the program can "remember" values even after indivisual recursive calls complete, while with temporary stack storage, values are only kept while the recursive call chain is active._**
