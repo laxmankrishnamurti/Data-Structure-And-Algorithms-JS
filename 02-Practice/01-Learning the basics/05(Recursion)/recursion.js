@@ -1,3 +1,5 @@
+//1.  Print numbers from 1 to n without the help of loops. You only need to complete the function printNos() that takes N as parameter and prints number from 1 to N recursively.
+
 function printNos(n, origin = n) {
   if (n === 0) {
     return;
@@ -10,4 +12,6 @@ function printNos(n, origin = n) {
   }
 }
 
-printNos(5);
+// printNos(5);
+
+//2. Print "GFG", n times without the loop.
