@@ -57,7 +57,7 @@ function sumOfSeries(n) {
   return n ** 3 + sumOfSeries(n - 1);
 }
 
-console.log(sumOfSeries(3));
+// console.log(sumOfSeries(3));
 
 //Without recursion
 
@@ -76,3 +76,72 @@ function sumOfCubes(n) {
 /**
  * Conclusion ===> If upper frame has to return something to the below frame the recursive expression should be expressed with the return keyword.
  */
+
+//6. A number n is called a factorial number if it is the factorial of a positive integer. For example, the first few factorial numbers are 1, 2, 6, 24, 120,...etc. Given a number n, the task is to return the list/vector of the factorial numbers smaller than or equal to n.
+
+function factorialVector(n) {
+  if (n < 0) {
+    return;
+  }
+
+  let factorial = 1;
+  for (let i = 1; i <= n; i++) {
+    factorial *= i;
+    if (factorial <= n) {
+      process.stdout.write(factorial.toString() + " ");
+    }
+  }
+  console.log("\n");
+}
+
+// factorialVector(5);
+
+//With recursion
+
+function factorialVectorWithRecursion(n) {
+  if (n === 1) {
+    process.stdout.write(n + " ");
+    return 1;
+  }
+
+  let factorial = n * factorialVectorWithRecursion(n - 1);
+  if (factorial <= n) {
+    process.stdout.write(factorial + " ");
+  }
+  console.log();
+  return factorial;
+}
+
+// factorialVectorWithRecursion(3);
+
+//7. You are given an array of integers arr . Your task is to reverse the given array and return the reversed array.
+
+function reverseArr(arr) {
+  for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+    let temp = arr[i];
+    arr[i] = arr[arr.length - (i + 1)];
+    arr[arr.length - (i + 1)] = temp;
+  }
+  return arr;
+}
+
+let reversedArr = reverseArr([1, 2, 3, 4]);
+// console.log("reversedArr", reversedArr);
+
+function reverseArrWithRecursion(
+  arr,
+  length = Math.floor(arr.length / 2),
+  i = 0
+) {
+  if (i === length) {
+    return arr;
+  }
+
+  let temp = arr[i];
+  arr[i] = arr[arr.length - (1 + i)];
+  arr[arr.length - (1 + i)] = temp;
+
+  reverseArrWithRecursion(length, i++);
+}
+
+console.log(reverseArrWithRecursion([1, 2, 3, 4]));
