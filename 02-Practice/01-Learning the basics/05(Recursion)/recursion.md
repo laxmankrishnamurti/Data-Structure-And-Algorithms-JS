@@ -111,3 +111,128 @@ Here the function _printTable()_ will keep calling itself until the value of i w
    - This storage remain available across multiple calls and is used to avoid redundent calculations.
 
 **_With memoization, the program can "remember" values even after indivisual recursive calls complete, while with temporary stack storage, values are only kept while the recursive call chain is active._**
+
+# Basic patterns of Recursion
+
+```js
+// Print 1 to N
+
+class Solution {
+  printNos(N, original = N) {
+    if (N === 0) {
+      return;
+    }
+    this.printNos(N - 1, original);
+    process.stdout.write(" " + N);
+
+    //adding next line after printing the last number
+    if (N === original) {
+      process.stdout.write("\n");
+    }
+  }
+}
+
+// Print GFG n times
+
+class Solution {
+  printNos(N, original = N) {
+    if (N === 0) {
+      return;
+    }
+    this.printNos(N - 1, original);
+    process.stdout.write(" " + N);
+
+    //adding next line after printing the last number
+    if (N === original) {
+      process.stdout.write("\n");
+    }
+  }
+}
+
+// Print N to 1
+
+function printDec(n, origin = n) {
+  if (n === 0) {
+    return;
+  }
+  process.stdout.write(n + " ");
+  printDec(n - 1, origin);
+
+  if (n === origin) {
+    process.stdout.write("\n");
+  }
+}
+
+// Print factorial vector/list if factorial is less than n
+
+class Solution {
+  // Function to calculate the factorial of a number.
+  factorialNumbers(n) {
+    if (n === 1) {
+      process.stdout.write(n + " ");
+      return 1;
+    }
+
+    let factorial = n * this.factorialNumbers(n - 1);
+    if (factorial <= n) {
+      process.stdout.write(factorial + " ");
+    }
+
+    console.log("\n");
+    return factorial;
+  }
+}
+
+// Reverse an array
+
+class Solution {
+  // Function to reverse the array.
+  reverseArray(arr, index = 0) {
+    if (index === Math.floor(arr.length / 2)) {
+      return;
+    }
+
+    let temp = arr[index];
+    arr[index] = arr[arr.length - (1 + index)];
+    arr[arr.length - (1 + index)] = temp;
+
+    index++;
+    this.reverseArray(arr, index);
+
+    return arr;
+  }
+}
+
+// Validate a palindrom string
+
+var isPalindrome = function (s) {
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+
+  if (s === "" || s === " ") return true;
+
+  var palindrom = function (str, start = 0, end = str.length - 1) {
+    if (start >= end) return true;
+
+    if (str.length === 1) return true;
+
+    if (str[start] !== str[end]) return false;
+
+    return palindrom(str, start + 1, end - 1);
+  };
+
+  return palindrom(s);
+};
+
+// Fibonacci number
+
+var fib = function (n) {
+  if (n == 0) {
+    return 0;
+  }
+  if (n == 1) {
+    return 1;
+  }
+
+  return fib(n - 1) + fib(n - 2);
+};
+```
