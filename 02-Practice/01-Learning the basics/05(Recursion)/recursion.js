@@ -128,20 +128,45 @@ function reverseArr(arr) {
 let reversedArr = reverseArr([1, 2, 3, 4]);
 // console.log("reversedArr", reversedArr);
 
-function reverseArrWithRecursion(
-  arr,
-  length = Math.floor(arr.length / 2),
-  i = 0
-) {
-  if (i === length) {
-    return arr;
+function reverseArrWithRecursion(arr, index = 0) {
+  if (index === Math.floor(arr.length / 2)) {
+    return;
   }
 
-  let temp = arr[i];
-  arr[i] = arr[arr.length - (1 + i)];
-  arr[arr.length - (1 + i)] = temp;
+  let temp = arr[index];
+  arr[index] = arr[arr.length - (1 + index)];
+  arr[arr.length - (1 + index)] = temp;
 
-  reverseArrWithRecursion(length, i++);
+  index++;
+  reverseArrWithRecursion(arr, index);
+  return arr;
 }
 
-console.log(reverseArrWithRecursion([1, 2, 3, 4]));
+let reArr = reverseArrWithRecursion([1, 2, 3, 4]);
+// console.log("reversed Array", reArr);
+
+// 8. A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+function palindromeStr(s) {
+  s = s.replace(/[^a-zA-Z]/g, "");
+  s = s.toLowerCase();
+
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+
+  if (s === "" || s === " ") return true;
+
+  var palindrom = function (str, start = 0, end = str.length - 1) {
+    if (start >= end) return true;
+
+    if (str.length === 1) return true;
+
+    if (str[start] !== str[end]) return false;
+
+    return palindrom(str, start + 1, end - 1);
+  };
+
+  return palindrom(s);
+}
+
+let result = palindromeStr("0P");
+console.log("Palindrom", result);
