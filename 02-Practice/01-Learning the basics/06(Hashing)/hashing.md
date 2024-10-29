@@ -56,11 +56,10 @@ Hashing is used like a cheching which stores data for further use cases.
 - It pre-store the value and then fetch the same value if needed.
 
 ```js
-function hashTable(arr) {
-  let maxHashNumber = 6;
-  let hashTable = Array(maxHashNumber).fill(0);
+function getHashTable(arr) {
+  let maxHashNumber = Math.max(...arr);
+  let hashTable = Array(maxHashNumber + 1).fill(0);
 
-  console.log(hashTable);
   for (let i = 0; i < arr.length; i++) {
     hashTable[arr[i]] += 1;
   }
@@ -72,9 +71,14 @@ let array = [
   1, 2, 3, 4, 5, 4, 3, 2, 3, 4, 5, 4, 3, 2, 3, 4, 3, 2, 1, 2, 3, 2, 4, 5, 4, 3,
   2, 3,
 ];
-let hashT = hashTable(array);
+let hashT = getHashTable(array);
 console.log("Occurance of 5", hashT[5]);
 ```
 
-- **The maximum length of the hash table will be decided to the max value of the input array.**
-- **Because in the hash table every index will be representing the value of the array not the actual index vlaue. The index value in the hash table is the element of the array and the value of a particular index is nothing but the number of occurance of the input element**
+- **The maximum length of the hash table will be decided from the max value of the input array's element.**
+- **Because in the hash table every index will represent the value of the array not the actual index vlaue. The index value in the hash table is the element of the input array and the value on a particular index is nothing but the number of occurance of the input element**
+
+So, to track a history of such occurances there are two main-deciding factors
+
+1. What is the max element value of the input array
+2. Array's element is used as an index value in the hashtable and the value of that particular index will be the occurance number.
