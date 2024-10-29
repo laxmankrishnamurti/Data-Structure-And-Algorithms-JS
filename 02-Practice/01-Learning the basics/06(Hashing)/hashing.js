@@ -21,10 +21,10 @@ let array = [
 // console.log("Occurance of 5", hashT[5]);
 
 const maxArr = Array(1e7).fill(0);
-console.log("maxArr", maxArr);
+// console.log("maxArr", maxArr);
 
 const maxBool = Array(1e7).fill(Boolean(1));
-console.log("maxBool", maxBool);
+// console.log("maxBool", maxBool);
 
 /**
  * Character Hashing
@@ -52,3 +52,40 @@ const char = "a";
 const str = "laaaaaaaaaaaaksjssssdf";
 // let numOfOcc = getCharOcc(str, char);
 // console.log(`occurance of ${char} in the string ${str} is ${numOfOcc}`);
+
+/**
+ * Segmentation
+ */
+
+function segmentation(arr, target) {
+  const segmentSize = 1e7;
+  const segments = Math.ceil(1e8 / segmentSize);
+  const occurances = Array.from(
+    { length: segments },
+    () => new Uint32Array(segmentSize)
+  );
+
+  // changing occurances
+
+  for (let i = 0; i < arr.length; i++) {
+    console.log("arr", arr);
+    let index = arr[i];
+    console.log("index", index);
+    let segmentIndex = Math.floor(index / segmentSize);
+    console.log("segmentIndex", segmentIndex);
+    let innerIndex = index % segmentSize;
+    console.log("innerIndex", innerIndex);
+
+    occurances[segmentIndex][innerIndex] += 1;
+  }
+
+  // let index = target;
+  // let segmentIndex = Math.floor(index / segmentSize);
+  // let innerIndex = index % segmentSize;
+  // console.log("innerIndex outside", innerIndex);
+
+  // return occurances[segmentIndex][innerIndex];
+}
+
+let occuranceResult = segmentation([1, 100000001], 1);
+console.log("occuranceResult", occuranceResult);

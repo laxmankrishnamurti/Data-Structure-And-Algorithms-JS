@@ -249,3 +249,40 @@ console.log(`occurance of ${char} in the string ${str} is ${numOfOcc}`);
 ```
 
 **_Because there are limited characters so there is no limit for of hashing for that_**
+
+## How to declare a array and initialize values beyond the length of [1e7]
+
+- **In C++ there is STL which comes to solve the problem which contains**
+
+  - Map
+    - Stores key-value pairs in sorted structure
+  - Un-ordered map
+
+- **In Java there is something called _collection_ which contains**
+  - HashMap
+
+#### **_Segmentation_**
+
+```js
+/**
+ * Segmentation (Like matrix ===> jaggedArray in JavaScript)
+ */
+
+function segmentation() {
+  const segmentSize = 1e7;
+  const segments = Math.ceil(1e8 / segmentSize);
+  const occurances = Array.from(
+    { length: segments },
+    () => new Uint32Array(segmentSize)
+  );
+
+  let index = 30000000;
+  let segmentIndex = Math.floor(index / segmentSize);
+  let innerIndex = index % segmentSize;
+
+  // manupulate any index value
+  occurances[segmentIndex][innerIndex] += 1;
+}
+
+segmentation();
+```
