@@ -55,6 +55,8 @@ Hashing is used like a cheching which stores data for further use cases.
 
 - It pre-store the value and then fetch the same value if needed.
 
+### Number Hashing
+
 ```js
 function getHashTable(arr) {
   let maxHashNumber = Math.max(...arr);
@@ -82,3 +84,39 @@ So, to track a history of such occurances there are two main-deciding factors
 
 1. What is the max element value of the input array
 2. Array's element is used as an index value in the hashtable and the value of that particular index will be the occurance number.
+
+## Limitations
+
+- If we are dealing with an array of _integers_ we can only store upto [1e6] locally and [1e7] globally.
+- With boolean it can go upto [1e7] locally and [1e8] globally.
+
+  - **If we try to initialize an array outside the range we will get an segmentation error. Because, memory management unit could not able to allocate that much memory in the RAM.**
+
+### Character Hashing
+
+```js
+// assuming str is in lowercase
+function getLowerCharHashTable(str) {
+  // for all characters the length will be 256
+  const charHashTable = Array(25).fill(0);
+
+  for (let i = 0; i < str.length; i++) {
+    // for all characters ===> charHashTable[str[i].charCodeAt(0)]
+    charHashTable[str[i].charCodeAt(0) - "a".charCodeAt(0)] += 1;
+  }
+
+  return charHashTable;
+}
+
+function getCharOcc(str, char) {
+  let lowerCharHashTable = getLowerCharHashTable(str);
+  return lowerCharHashTable[char.charCodeAt(0) - "a".charCodeAt(0)];
+}
+
+const char = "a";
+const str = "laaaaaaaaaaaaksjssssdf";
+let numOfOcc = getCharOcc(str, char);
+console.log(`occurance of ${char} in the string ${str} is ${numOfOcc}`);
+```
+
+**_Because there are limited characters so there is no limit for of hashing for that_**
