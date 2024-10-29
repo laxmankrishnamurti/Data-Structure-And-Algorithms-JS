@@ -87,10 +87,139 @@ So, to track a history of such occurances there are two main-deciding factors
 
 ## Limitations
 
+**_In C++_ (inside int main())**
+
 - If we are dealing with an array of _integers_ we can only store upto [1e6] locally and [1e7] globally.
 - With boolean it can go upto [1e7] locally and [1e8] globally.
 
-  - **If we try to initialize an array outside the range we will get an segmentation error. Because, memory management unit could not able to allocate that much memory in the RAM.**
+- **If we try to initialize an array outside the range we will get an segmentation error. Because, memory management unit could not able to allocate that much memory in the RAM.**
+
+**_In JavaScript_**
+
+- Array
+
+  ```js
+  const maxArr = Array(1e9);
+  console.log("maxArr", maxArr);
+
+  //Output ===> maxArr [ <1000000000 empty items> ]
+  ```
+
+  But problems comes when we increase it by 1.
+
+  ```js
+  const maxArr = Array(1e10);
+  console.log("maxArr", maxArr);
+
+  //Output
+  //const maxArr = Array(1e10);
+  //RangeError: Invalid array length
+  ```
+
+## Things went wrong when i have started allocating values in the array
+
+    ```js
+    const maxArr = Array(1e9).fill(0);
+    console.log("maxArr", maxArr);
+
+    const maxBool = Array(1e9).fill(Boolean(1));
+    console.log("maxBool", maxBool);
+    ```
+
+    ```bash
+    # Output
+
+    <--- Last few GCs --->
+
+    [15115:0x5a4ff90]     2553 ms: Scavenge 515.0 (549.4) -> 515.0 (549.4) MB, 129.99 / 0.00 ms  (average mu = 1.000, current mu = 1.000) allocation failure;
+    [15115:0x5a4ff90]     3631 ms: Mark-Compact 909.8 (944.4) -> 909.5 (944.4) MB, 575.36 / 0.00 ms  (+ 0.4 ms in 44 steps since start of marking, biggest step 0.1 ms, walltime since start of marking 1078 ms) (average mu = 1.000, current mu = 1.000) allocatio
+
+    <--- JS stacktrace --->
+
+    FATAL ERROR: invalid table size Allocation failed - JavaScript heap out of memory
+    ----- Native stack trace -----
+
+    ......to much details
+    12: 0x1961df6  [node]
+    Aborted (core dumped)
+    ```
+
+    ```js
+    const maxArr = Array(1e8).fill(0);
+    console.log("maxArr", maxArr);
+
+    const maxBool = Array(1e8).fill(Boolean(1));
+    console.log("maxBool", maxBool);
+    ```
+
+    ```bash
+    # Output (It had been taken too much time)
+
+    maxArr [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0,
+      ... 99999900 more items
+    ]
+
+    <--- Last few GCs --->
+    .1[15271:0x6707f90]    62365 ms: Mark-Compact (reduce) 4080.2 (4112.3) -> 4080.2 (4112.3) MB, 3119.74 / 0.00 ms  (+ 0.0 ms in 3 steps since start of marking, biggest step 0.0 ms, walltime since start of marking 3133 ms) (average mu = 0.172, current mu = 0.0[15271:0x6707f90]    65848 ms: Mark-Compact (reduce) 4088.3 (4120.5) -> 4088.3 (4120.5) MB, 3151.49 / 0.00 ms  (+ 0.0 ms in 3 steps since start of marking, biggest step 0.0 ms, walltime since start of marking 3165 ms) (average mu = 0.135, current mu = 0.0
+
+    <--- JS stacktrace --->
+
+    FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+    ----- Native stack trace -----
+
+    ......to much details
+    16: 0x1961df6  [node]
+    Aborted (core dumped)
+    ```
+
+    ```js
+    const maxArr = Array(1e7).fill(0);
+    console.log("maxArr", maxArr);
+
+    const maxBool = Array(1e7).fill(Boolean(1));
+    console.log("maxBool", maxBool);
+    ```
+
+    ```bash
+    # Output (Easiely get printed)
+
+    maxArr [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0,
+      ... 9999900 more items
+    ]
+    maxBool [
+      true, true, true, true, true, true, true, true, true, true,
+      true, true, true, true, true, true, true, true, true, true,
+      true, true, true, true, true, true, true, true, true, true,
+      true, true, true, true, true, true, true, true, true, true,
+      true, true, true, true, true, true, true, true, true, true,
+      true, true, true, true, true, true, true, true, true, true,
+      true, true, true, true, true, true, true, true, true, true,
+      true, true, true, true, true, true, true, true, true, true,
+      true, true, true, true, true, true, true, true, true, true,
+      true, true, true, true, true, true, true, true, true, true,
+      ... 9999900 more items
+    ]
+    ```
+
+**Ideal array length should be [1E7]**
 
 ### Character Hashing
 

@@ -1,3 +1,7 @@
+/**
+ * Number Hashing
+ */
+
 function getHashTable(arr) {
   let maxHashNumber = Math.max(...arr);
   let hashTable = Array(maxHashNumber + 1).fill(0);
@@ -15,6 +19,16 @@ let array = [
 ];
 // let hashT = getHashTable(array);
 // console.log("Occurance of 5", hashT[5]);
+
+const maxArr = Array(1e7).fill(0);
+console.log("maxArr", maxArr);
+
+const maxBool = Array(1e7).fill(Boolean(1));
+console.log("maxBool", maxBool);
+
+/**
+ * Character Hashing
+ */
 
 // assuming str is in lowercase
 function getLowerCharHashTable(str) {
@@ -36,5 +50,5 @@ function getCharOcc(str, char) {
 
 const char = "a";
 const str = "laaaaaaaaaaaaksjssssdf";
-let numOfOcc = getCharOcc(str, char);
-console.log(`occurance of ${char} in the string ${str} is ${numOfOcc}`);
+// let numOfOcc = getCharOcc(str, char);
+// console.log(`occurance of ${char} in the string ${str} is ${numOfOcc}`);
