@@ -88,4 +88,4 @@ function segmentation(arr, target) {
 }
 
 let occuranceResult = segmentation([1, 100000001], 1);
-console.log("occuranceResult", occuranceResult);
+// console.log("occuranceResult", occuranceResult);
