@@ -65,27 +65,34 @@ function segmentation(arr, target) {
     () => new Uint32Array(segmentSize)
   );
 
+  let max = Math.max(...arr);
+
+  if (max > 1e8 || target > 1e8) {
+    return `Invalid input`;
+  }
+
   // changing occurances
 
   for (let i = 0; i < arr.length; i++) {
-    console.log("arr", arr);
     let index = arr[i];
-    console.log("index", index);
     let segmentIndex = Math.floor(index / segmentSize);
-    console.log("segmentIndex", segmentIndex);
     let innerIndex = index % segmentSize;
-    console.log("innerIndex", innerIndex);
 
     occurances[segmentIndex][innerIndex] += 1;
   }
 
-  // let index = target;
-  // let segmentIndex = Math.floor(index / segmentSize);
-  // let innerIndex = index % segmentSize;
-  // console.log("innerIndex outside", innerIndex);
+  let index = target;
+  let segmentIndex = Math.floor(index / segmentSize);
+  let innerIndex = index % segmentSize;
 
-  // return occurances[segmentIndex][innerIndex];
+  return occurances[segmentIndex][innerIndex];
 }
 
-let occuranceResult = segmentation([1, 100000001], 1);
-// console.log("occuranceResult", occuranceResult);
+let occuranceResult = segmentation(
+  [
+    1, 3, 4, 2, 4, 45, 56, 7, 7, 6, 54, 3, 3, 5, 67, 8, 89, 9, 9, 8, 7, 67, 56,
+    54, 10000000, 10000000, 10000000, 10000000, 10000000,
+  ],
+  20
+);
+console.log("occuranceResult", occuranceResult);
