@@ -1,1 +1,81 @@
 # Chapter - 01 (Big-O Notation)
+
+The Big-O notation measures the worst-case complexity of an algorithms.
+
+## **What does it mean by worst-case?**
+
+It means, the maximum amount of time or resources(such as memory) that an algorithm will require to complete it's task regardless of input size.
+
+## Symbol **_O(n)_**
+
+Where, n represents the input size
+
+## What exactly time complexity is?
+
+Time complexity is not related to the time an algorithm takes. This should not become the criteria to judge an algorithm how fast it is because in this way the time complexity will depends on the machine configuration. A low-level machine takes too much time than a high-configurable machine for the same algorithms.
+
+Hence, total amount of time taken by an algorithm will not become the criteria to judge any particular algorithm. Then what it is? let's go........
+
+_Time complexity of an algorithm is the number of operations that it does to accomplish the task with a given input size._
+
+```js
+function findTarget(arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; i++) {
+      if (arr[i][j] === target) {
+        return `Outer index : ${i}, Inner index : ${j}`;
+      }
+    }
+  }
+}
+
+let result = findTarget(
+  [
+    [1, 2, 3, 4, 5],
+    [6, 7, 8],
+    [9, 0, 10, 11],
+  ],
+  5
+);
+```
+
+This algorithm is trying to find an element in a 2D array or in the jagged array(in javascript) and returning the outer and innder index value which is the position of the element in the given array.
+
+Now, for every outer index the algorithm is running an additional loop for traversing in the nested array. Let's see how many numbers of operation it does to find the given target.
+
+- Outer array
+  - _n-times_
+    - Inner array
+      - _n-times_
+
+Where, n is the total length of the array.
+
+- For every single outer element the inner loop will run completely. So, let's calculate total number of operations.
+
+  - Outer length ===> n
+
+    - Inner length ===> n
+
+  - The next element of the array runs after n times, which is the length of the inner array
+    - 1 element \* n times
+    - n element \* n times
+  - So, the time complexity would be ===> n \* n ===> n res to the power 2 ===> O(n^2)
+
+**Mathematical calculations**
+
+- Total length of the outer element is ===> 3
+
+  - First inner element length is ===> 5
+
+    - As of now, the total number of operations is ===> 5 + 1 ===> 6
+
+  - Second inner element length is ===> 3
+
+    - Total number of operations ===> 3 + 1 ===> 4 + 6 ===> 10
+
+  - Third inner element length is ===> 4
+    - Total number of operations ===> 4 + 1 ===> 5 + 10 ===> 15
+
+_In short ===> Total number of operations would be ===> [(total length of parent array)*(total length of child array)] ===> 3 \* 5 ===> 15 Operations_
+
+**Hence, time complexity would be ===> _O(n \* n) : in nested conditions_**
