@@ -28,4 +28,32 @@ Where,
 - In Exponantial representation we try to get the N, with the help of the base case and the exponent.
 - On the other hand in Logarithmic representation we try to get the value of the exponent, with the help of N and the base case.
 
-- Hence, we can say Exponantial representation is nothing but a way to calculate _anti-log value_. One thing which we will keep in mind is the _log_ itself dosen't hold any value this is just a symbol. It dosen't hold any kind of vlaue.
+- Hence, we can say that Exponantial representation is nothing but a way to calculate _anti-log values_. One thing that which we should keep in mind is that the _log_ itself dosen't hold any kind of values this is just a symbol to represent logatithmic expression.
+
+## Formal representation
+
+- Exponantial representation
+
+  - a(^x) = N
+    - Anti-log of x to the base a is N
+
+- Logarithmic representation
+  - log(a)N = x
+    - Log of N to the base of a is x.
+
+### **Constraints**
+
+**N should be a positive real number**
+
+- We don't rely on negative N becasue it may gives an imaginary answers. Let's see
+
+  - <pre>
+        let x = 2; base = -2; 
+            result would be -2(^2) === 4 (acceptable)
+    
+        let x = -5; base = -2;
+            result would be -2(^5) === -32 (acceptable)
+    
+        let x = 1/2; base = -2;
+             result would be -2(^1/2) = square root of -2 ===> Imaginary value ===> 2i (not-acceptable)
+    </pre>
