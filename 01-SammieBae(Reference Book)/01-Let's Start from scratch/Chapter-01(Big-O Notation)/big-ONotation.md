@@ -115,3 +115,23 @@ Where, n is the total length of the array.
 _In short ===> Total number of operations would be ===> [(total length of parent array)*(total length of child array)] ===> 3 \* 5 ===> 15 Operations_
 
 **Hence, time complexity would be ===> _O(n \* n) : in nested conditions_**
+
+## Common time-complexities
+
+1. O(1)
+
+   - O(1) is holy by "Hamid Tizhoosh"
+
+2. O(log n)
+
+3. O(n)
+
+4. O(n^2)
+
+5. O(n^3)
+
+6. O(n^n)
+
+**Descending Order based on number of operation**
+
+_O(n^n) ===> O(On^3) ===> O(n^2) ===> O(n) ===> O(log n) ===> O(1)_
