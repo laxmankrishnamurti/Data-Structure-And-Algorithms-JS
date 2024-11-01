@@ -43,7 +43,7 @@ Where,
 
 ### **Constraints**
 
-**N should be a positive real number**
+**1. Base should be a positive real number**
 
 - We don't rely on negative N becasue it may gives an imaginary answers. Let's see
 
@@ -57,3 +57,25 @@ Where,
         let x = 1/2; base = -2;
              result would be -2(^1/2) = square root of -2 ===> Imaginary value ===> 2i (not-acceptable)
     </pre>
+
+It means at some cases for x with negative base value will work but it dosen't work at most cases.
+
+Hence, we should not rely on a negative base value.
+
+**2. In logarithmic expression both the base value and the N should be positive.**
+
+**3. Remember for log(a)N; M > 0; a > 0; a !== 1**
+
+<pre>
+let's find the x for this expression. 
+
+log(square root of 2 + 1)sqare root of 2 - 1
+
+(sqare root of 2 + 1) * (sqare root of 2 - 1) = 1
+
+It means both are reciprocals to each other. 
+
+means the value of x would be -1 
+</pre>
+
+**If product of two expression is 1 then both are reciprocals to each other. **
