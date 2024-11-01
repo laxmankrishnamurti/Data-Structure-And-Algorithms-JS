@@ -4,7 +4,43 @@ The Big-O notation measures the worst-case complexity of an algorithms.
 
 ## **What does it mean by worst-case?**
 
-It means, the maximum amount of time or resources(such as memory) that an algorithm will require to complete it's task regardless of input size.
+It means, the maximum number of operations and the resources(such as memory) that an algorithm required to complete it's task regardless of input size. Let's understand it .............
+
+```js
+function findTarget(arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === target) {
+      return `index : ${i}`;
+    }
+  }
+}
+
+let result = findTarget(
+  [
+    [
+      1, 2, 3, 4, 5, 12, 3, 34, 20, 4, 26, 4, 2334, 2, 3, 1, 3, 6, 6, 5, 6, 6,
+      7, 8, 8, 67,
+    ],
+  ],
+  2
+);
+```
+
+In this input array the target is _2_ and the algorithm doesn't require to traverse in the entire array to find the target value because it is on the _1st index_. Hence, it only require to do _2-operations_ to find the target value. This not the _worst-case scenario._ Let's have a look on this :-
+
+```js
+let result = findTarget(
+  [
+    [
+      1, 3, 4, 5, 12, 3, 34, 20, 4, 26, 4, 2334, 2, 3, 1, 3, 6, 6, 5, 6, 6, 7,
+      8, 8, 67, 2,
+    ],
+  ],
+  2
+);
+```
+
+Now, we can clearly see the same target is on the last index of the array means the algorithm that we have created must run _n-times_ to find the target. This is what we call _the worst-case scenario_ where algorithm is forced to run _n-times_ to complete their task.
 
 ## Symbol **_O(n)_**
 
