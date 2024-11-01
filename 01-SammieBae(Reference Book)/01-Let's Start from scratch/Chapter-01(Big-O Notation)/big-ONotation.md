@@ -135,3 +135,5 @@ _In short ===> Total number of operations would be ===> [(total length of parent
 **Descending Order based on number of operation**
 
 _O(n^n) ===> O(On^3) ===> O(n^2) ===> O(n) ===> O(log n) ===> O(1)_
+
+[Basics of Logarithms](./logarithm.md)

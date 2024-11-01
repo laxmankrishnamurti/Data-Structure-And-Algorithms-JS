@@ -1,4 +1,4 @@
-# Logarithm
+# Basics of Logarithms
 
 - Logarithm gives us the rule to simplify some mathematical calculation.
 
@@ -78,4 +78,18 @@ It means both are reciprocals to each other.
 means the value of x would be -1 
 </pre>
 
-**If product of two expression is 1 then both are reciprocals to each other. **
+**If product of two expression is 1 then both are reciprocals to each other.**
+
+## Results
+
+1. log(base a)N = x
+
+   - where a > 0; N >0; a !== 1
+
+2. log(base N)N = 1
+
+3. log(base 1/N)N = -1
+
+   - Because product of the base value and the N is 1. It means both are reciprocals to each other.
+
+4. log(base a)1 = 0
