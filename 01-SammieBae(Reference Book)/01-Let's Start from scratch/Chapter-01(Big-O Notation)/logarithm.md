@@ -28,7 +28,7 @@ Where,
 - In Exponantial representation we try to get the N, with the help of the base case and the exponent.
 - On the other hand in Logarithmic representation we try to get the value of the exponent, with the help of N and the base case.
 
-- Hence, we can say that Exponantial representation is nothing but a way to calculate _anti-log values_. One thing that which we should keep in mind is that the _log_ itself dosen't hold any kind of values this is just a symbol to represent logatithmic expression.
+- Hence, we can say that Exponantial representation is nothing but a way to calculate _anti-log values_. One thing which we should keep in mind is that the _log_ itself dosen't hold any kind of values this is just a symbol to represent logatithmic expression.
 
 ## Formal representation
 
@@ -51,7 +51,7 @@ Where,
         let x = 2; base = -2; 
             result would be -2(^2) === 4 (acceptable)
     
-        let x = -5; base = -2;
+        let x = 5; base = -2;
             result would be -2(^5) === -32 (acceptable)
     
         let x = 1/2; base = -2;
@@ -64,12 +64,12 @@ Hence, we should not rely on a negative base value.
 
 **2. In logarithmic expression both the base value and the N should be positive.**
 
-**3. Remember for log(a)N; M > 0; a > 0; a !== 1**
+**3. Remember for log(a)N; N > 0; a > 0; a !== 1**
 
 <pre>
 let's find the x for this expression. 
 
-log(square root of 2 + 1)sqare root of 2 - 1
+log(base : square root of 2 + 1)sqare root of 2 - 1
 
 (sqare root of 2 + 1) * (sqare root of 2 - 1) = 1
 
