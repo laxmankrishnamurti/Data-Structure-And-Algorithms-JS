@@ -132,8 +132,148 @@ _In short ===> Total number of operations would be ===> [(total length of parent
 
 6. O(n^n)
 
-**Descending Order based on number of operation**
+**Descending Order based on time complexity**
 
 _O(n^n) ===> O(On^3) ===> O(n^2) ===> O(n) ===> O(log n) ===> O(1)_
 
 [Basics of Logarithms](./logarithm.md)
+
+**Logarithmic time complexity**
+
+```js
+// Print elements that are a power of 2 between 2 to n.
+
+function printN(n) {
+  for (let i = 2; i <= n; i *= 2) {
+    console.log(i);
+  }
+}
+printN(1000000);
+```
+
+- Time complexity
+  - log(base 2)1000000 = 19(max)
+
+## Rules of Big-O Notation
+
+The goal of algorithm analysis is to find efficiency of the algorithm. However, it can be challenging to calculate f(n) which consists two things
+
+- f(n) : Algorithms's complexity
+- f(n)time : the time complexity
+- f(n)space: the space complexity
+
+Hence, f(n) = f(n)time + f(n)space
+
+It means efficiency of an algorithm includes two things the space and the time complexity. But Big-O notation provides some fundamental rules that help us to compute for f(n).
+
+### **1. Coefficient rule**
+
+We do not consider any coefficient value in an algorithms's time complexity becasue we assume that n can be infinity so the coefficient will become negligible.
+
+```js
+function printNOne(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log(i);
+  }
+}
+
+function printNTwo(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log(i);
+  }
+
+  for (let j = 1; j <= n; j++) {
+    console.log(j);
+  }
+}
+```
+
+It seems like first algorithm has lower time complexity than second one. But it dosen't like that. Let's analyze.....
+
+- Time complexity of printNOne is O(n)
+- Time complexity of printNTwo is :
+
+  - First loop
+
+    - total number of operations can be N
+      - Time complexity would be O(n)
+
+  - Second loop
+
+    - total number of operations can be N
+      - Time complexity would be O(n)
+
+  - Now, total number of operations will be = N + N = 2N. Hence, the time complexity of printNTwo would be O(2n) ===> 2O(n) ===> O(n)
+    - 2 can be negligible as respect to n.
+
+- Hence, both have same time complexity.
+
+### **2. Sum rule**
+
+The sum rule simply states that if a resultant time complexity is a sum of two different time complexities, the resultant Big-O notation is also the sum of two different Big-O notations.
+
+```js
+// This is same as the printNTwo function
+
+function printNTwo(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log(i);
+  }
+
+  for (let j = 1; j <= n; j++) {
+    console.log(j);
+  }
+}
+```
+
+At the end of the day _printNTwo()_ depends on the inner two loops's complexities. Untill both loop will not run the function will not able to give any kind of results. It means it depends upon both loops which has different time complexity.
+
+### **3. Product rule**
+
+The product rule states that Big-O is multiplied when the time complexities are multiplied. And this will only happens when number of operations will be increased than N. Like we generally see this kind of situation in the nested loop.
+
+```js
+function printNTwo(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log(i);
+    for (let j = 0; j <= n; j++) {
+      console.log(j);
+    }
+  }
+}
+```
+
+### **4. Transitive rule**
+
+The transitive rule is a simple way to state that the same time complexity has the same Big-O.
+
+EX:- If f(n) is O(g(n)) and g(n) is O(h(n)), the f(n) is O(h(n)).
+
+For instance, if A is larger than B, and B is larger than C, then it is obvious that A will be larger than C.
+
+This is what transitive rule is trying to say.
+
+```js
+function returnValue(n) {
+  let arr = [];
+  for (let i = 0; i < n.length; i++) {
+    for (let j = 0; j < n.length; j++) {
+      arr.push(n[j]);
+    }
+  }
+
+  return arr;
+}
+
+function getValue(n) {
+  let value = returnValue(n);
+
+  return value;
+}
+```
+
+In this case the time complexity of _getValue()_ function is not just _O(1)_ it totally depends upon the _returnValue()_ algorithm's efficiency that how fast it can deliver the value.
+
+Now, we can clearly see that the time complexity of the _returnValue()_ is _O(n sqare)_.
+
+Hence the time complexity of the _getValue()_ function will also be _O(n sqare)_.
