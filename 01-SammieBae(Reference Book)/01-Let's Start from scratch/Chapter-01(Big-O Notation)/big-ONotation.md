@@ -277,3 +277,36 @@ In this case the time complexity of _getValue()_ function is not just _O(1)_ it 
 Now, we can clearly see that the time complexity of the _returnValue()_ is _O(n sqare)_.
 
 Hence the time complexity of the _getValue()_ function will also be _O(n sqare)_.
+
+### **5. Polynomial rule**
+
+The polynomial rule states that polynomial time complexities have Big-O of the same polynomial degree.
+
+```js
+function print(n) {
+  let arr = [];
+  for (let i = 0; i < n.length; i++) {
+    for (let j = 0; j < n.length; j++) {
+      arr.push(n[j]);
+    }
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+
+  return arr;
+}
+```
+
+- f(n)
+  - O(n\*n) ===> O(n^2)
+  - O(n)
+
+The time complexity of the function would be O(n^2) not O(n) because O(n^2) means there will be higher number of operation than O(n).
+
+### **6. Log of a power rule**
+
+log(nk) is O(log(n)) for any constant _K > 0_. With the log of a power rule, constants within a log function are also ignored in Big-O notation.
+
+#### **Special attention should be paid to the first three rules and the polynomial rule because they are mostly commanly used.**
