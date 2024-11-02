@@ -172,6 +172,16 @@ We do not consider any coefficient value in an algorithms's time complexity beca
 
 ```js
 function printNOne(n) {
+  for (let i = 1; i <= n * 5; i++) {
+    console.log(i);
+  }
+}
+```
+
+This function is O(n). n \* 5 ; 5 : Negligible
+
+```js
+function printNOne(n) {
   for (let i = 1; i <= n; i++) {
     console.log(i);
   }
@@ -310,3 +320,5 @@ The time complexity of the function would be O(n^2) not O(n) because O(n^2) mean
 log(nk) is O(log(n)) for any constant _K > 0_. With the log of a power rule, constants within a log function are also ignored in Big-O notation.
 
 #### **Special attention should be paid to the first three rules and the polynomial rule because they are mostly commanly used.**
+
+#### **_While tying to find the time complexity of an algorithm just focus on the number of opreations that the algorithm is doing._**
