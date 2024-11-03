@@ -40,6 +40,19 @@ In IEEE-754 64-bit floating-point format, each number is represented in binary u
 
 Let’s calculate the value `22` in the **64-bit IEEE 754 floating-point** representation from scratch, using the modified formula:
 
+### The formula to calculate a floating-point number using IEEE 754 (64-bit) representation is:
+
+    value = (-1)^sign * 2^(e - 1023) * (1 + Σ from t=1 to 52 of (b_(52-t) * 2^(-t)))
+
+where:
+
+- **sign** is the sign bit (0 for positive, 1 for negative),
+- **e** is the exponent (11 bits),
+- **b\_(52-t)** represents each bit in the mantissa (52 bits in total),
+- \( t \) ranges from 1 to 52 for the mantissa bits.
+
+---
+
 \[
 \text{value} = (-1)^{\text{sign}} \ 2^{(e - 1023)} \times \left(1 + \sum*{t=1}^{52} b*{52-t} \times 2^{-t}\right)
 \]
