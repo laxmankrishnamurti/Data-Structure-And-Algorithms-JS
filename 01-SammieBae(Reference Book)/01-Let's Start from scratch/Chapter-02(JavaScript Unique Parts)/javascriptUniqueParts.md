@@ -1,4 +1,4 @@
-# Chapter-02 (JavaScript Unique Parts)
+# Chapter - 02 (JavaScript Unique Parts)
 
 As a dynamic and interpreted programming language, its syntax is different from that of traditional object-oriented programming language. As we know JavaScript is a dynamic or interpreted language so it has some sort of exceptions, different kind of behaviours and syntax. These concepts are fundamental to JavaScript and will help us to develop a better understanding of the process of designing algorithms in JavaScript.
 
