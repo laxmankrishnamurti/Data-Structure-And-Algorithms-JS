@@ -1,5 +1,7 @@
 # Chapter - 03 (JavaScript Numbers)
 
+---
+
 This chapter will focus on :-
 
 **1. JavaScript number operations**
@@ -7,6 +9,8 @@ This chapter will focus on :-
 **3. Number objects**
 **4. Common number algorithms**
 **5. Random number generation**
+
+---
 
 ## JavaScript number operations
 
@@ -19,6 +23,8 @@ Number operations of a programming language allow us to compute numerical values
 - (/) ===> Division
 - (\*) ===> Multiplication
 - (%) ===> Modulus
+
+---
 
 ## Number system
 
@@ -40,6 +46,8 @@ In IEEE-754 64-bit floating-point format, each number is represented in binary u
 
 Let’s calculate the value `22` in the **64-bit IEEE 754 floating-point** representation from scratch, using the modified formula:
 
+---
+
 ### The formula to calculate a floating-point number using IEEE 754 (64-bit) representation is:
 
     value = (-1)^sign * 2^(e - 1023) * (1 + Σ from t=1 to 52 of (b_(52-t) * 2^(-t)))
@@ -56,6 +64,8 @@ where:
 \[
 \text{value} = (-1)^{\text{sign}} \ 2^{(e - 1023)} \times \left(1 + \sum*{t=1}^{52} b*{52-t} \times 2^{-t}\right)
 \]
+
+---
 
 ### Step 1: Convert `22` to Binary
 
@@ -150,3 +160,5 @@ The calculated 64-bit floating-point representation for `22` matches the expecte
 \[
 0 \ 10000000011 \ 0110000000000000000000000000000000000000000000000000
 \]
+
+---
