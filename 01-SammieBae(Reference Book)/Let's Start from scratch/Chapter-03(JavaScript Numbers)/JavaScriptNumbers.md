@@ -169,6 +169,7 @@ The calculated 64-bit floating-point representation for `22` matches the expecte
 
 ```js
 console.log(0.1 + 0.2 === 0.3);
+console.log(1 / 10);
 
-//Output : false
+//Outputs ===> false, 0.1
 ```
