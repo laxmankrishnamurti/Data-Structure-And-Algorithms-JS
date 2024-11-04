@@ -165,6 +165,8 @@ The calculated 64-bit floating-point representation for `22` matches the expecte
 
 ---
 
+## Estimation
+
 <code>Note :: With decimal fractions, this floating-point number system causes some rounding errors in JavaScript. For example 0.1 and 0.2 cannot be represented precisely. Hence,</code>
 
 ```js
@@ -173,3 +175,141 @@ console.log(1 / 10);
 
 //Outputs ===> false, 0.1
 ```
+
+### Let's understand the estimation behavious
+
+The behavior you're seeing is due to how JavaScript (and most other programming languages) handles floating-point numbers, which are stored in a binary format. JavaScript uses a standard called IEEE 754 for representing floating-point numbers, which can lead to precision issues with certain decimal numbers.
+
+1. **Why `0.1 + 0.2 !== 0.3`**:
+
+   - In binary, some decimal numbers (like `0.1` and `0.2`) cannot be represented exactly. When these numbers are stored in memory, they are approximated, which leads to slight precision errors.
+   - When you add `0.1` and `0.2` in JavaScript, you get `0.30000000000000004` instead of `0.3`. This is why `0.1 + 0.2 === 0.3` returns `false`.
+
+2. **Why `1 / 10` gives `0.1`**:
+   - Although `0.1` cannot be represented exactly in binary, the approximation used by JavaScript rounds it to `0.1` when displayed. However, this is not a true exact representation, as internally it still has a tiny error, which you can observe with more complex operations (like `0.1 + 0.2`).
+
+In general, if precision is critical, libraries like **Decimal.js** or **Big.js** can help manage these floating-point arithmetic issues.
+
+### How 0.1, 0.2 or any other floating-point number fits into _Binary representation_
+
+Let’s dive into how `0.1` and `0.2` are represented in binary using IEEE 754 double precision format and examine why adding them produces a slight error.
+
+IEEE 754 double precision format uses **64 bits**:
+
+- **1 bit** for the sign
+- **11 bits** for the exponent
+- **52 bits** for the fraction (or mantissa)
+
+This format allows for very large or small numbers but also introduces precision limitations.
+
+### Step 1: Converting 0.1 and 0.2 to Binary
+
+1. **Binary of 0.1**:
+
+   - The binary representation of `0.1` in IEEE 754 double precision is approximately:
+     ```
+     0.0001100110011001100110011001100110011001100110011001101...
+     ```
+   - When represented as a 64-bit IEEE 754 double precision, it becomes:
+     ```
+     0 01111111011 1001100110011001100110011001100110011001100110011010
+     ```
+     This binary number does not exactly represent `0.1` but is the closest approximation that can fit within 64 bits.
+
+2. **Binary of 0.2**:
+   - Similarly, the binary representation of `0.2` is:
+     ```
+     0.0011001100110011001100110011001100110011001100110011010...
+     ```
+   - In 64-bit IEEE 754 double precision format, it becomes:
+     ```
+     0 01111111100 1001100110011001100110011001100110011001100110011010
+     ```
+
+### Step 2: Adding 0.1 and 0.2 in IEEE 754
+
+When you add these two binary numbers in IEEE 754, their approximations lead to a slight error. Instead of `0.3`, the result is slightly more than `0.3`. Specifically, it becomes:
+
+```
+0.30000000000000004
+```
+
+This is due to the small rounding errors in the binary representations of `0.1` and `0.2`.
+
+## Why This Happens
+
+In base 10, `0.1` and `0.2` have finite decimal representations. But in base 2 (binary), they turn into repeating decimals that cannot be stored exactly in a finite number of bits. IEEE 754 approximates these numbers, but the approximations introduce tiny inaccuracies. When you add them up, these inaccuracies accumulate, leading to a result that is very close to—but not exactly—`0.3`.
+
+## How to convert 0.1 into _Binary format_
+
+To understand how `0.1` is represented as `0.0001100110011001100110011001100110011001100110011001101...` in binary, let's go through the steps of converting a decimal fraction to its binary form.
+
+### Step-by-Step Conversion of 0.1 to Binary
+
+When converting a decimal fraction like `0.1` to binary, you repeatedly multiply the fraction by `2` and track the integer part of the result. Here's how it works for `0.1`:
+
+1. **Multiply `0.1` by `2`**:
+
+   - \( 0.1 \times 2 = 0.2 \)
+   - **Integer part**: `0` (keep this as the first binary digit after the decimal)
+   - **Fractional part**: `0.2` (continue with this fraction)
+
+2. **Multiply `0.2` by `2`**:
+
+   - \( 0.2 \times 2 = 0.4 \)
+   - **Integer part**: `0`
+   - **Fractional part**: `0.4`
+
+3. **Multiply `0.4` by `2`**:
+
+   - \( 0.4 \times 2 = 0.8 \)
+   - **Integer part**: `0`
+   - **Fractional part**: `0.8`
+
+4. **Multiply `0.8` by `2`**:
+
+   - \( 0.8 \times 2 = 1.6 \)
+   - **Integer part**: `1`
+   - **Fractional part**: `0.6`
+
+5. **Multiply `0.6` by `2`**:
+
+   - \( 0.6 \times 2 = 1.2 \)
+   - **Integer part**: `1`
+   - **Fractional part**: `0.2`
+
+6. **Multiply `0.2` by `2`**:
+   - \( 0.2 \times 2 = 0.4 \)
+   - **Integer part**: `0`
+   - **Fractional part**: `0.4`
+
+Now, we see a repeating pattern emerging: `0011`.
+
+So, if we continue, the binary representation of `0.1` becomes:
+
+```
+0.0001100110011001100110011001100110011001100110011001100110011...
+```
+
+### Why It's an Infinite Repeating Binary
+
+In binary, `0.1` has a repeating fraction because `0.1` cannot be represented as a finite binary fraction. Similar to how `1/3` is represented as `0.3333...` in decimal, `0.1` has an infinitely repeating pattern in binary.
+
+### Representation in IEEE 754 Double Precision
+
+The IEEE 754 format approximates this repeating binary fraction within 64 bits, which is why `0.1` is represented approximately rather than exactly.
+
+---
+
+## JavaScript Number Object
+
+Luckily, there are some built-in properties of the number object in javascript that help work around this.
+
+```js
+Math.floor(0.9); // 0 (round down to nearest integer)
+Math.round(4.3); // 4 (round to nearest integer)
+Math.round(4.7); // 5 (round to nearest integer)
+Math.ceil(0.9); // 1  (round up to nearest integer)
+```
+
+[Practice file](./practice.js)
