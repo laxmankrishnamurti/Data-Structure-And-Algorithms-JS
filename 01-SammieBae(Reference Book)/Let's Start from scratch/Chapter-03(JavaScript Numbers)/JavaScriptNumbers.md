@@ -161,4 +161,14 @@ The calculated 64-bit floating-point representation for `22` matches the expecte
 0 \ 10000000011 \ 0110000000000000000000000000000000000000000000000000
 \]
 
+[Watch the video](https://www.youtube.com/watch?v=yvdtwKF87Ts)
+
 ---
+
+<code>Note :: With decimal fractions, this floating-point number system causes some rounding errors in JavaScript. For example 0.1 and 0.2 cannot be represented precisely. Hence,</code>
+
+```js
+console.log(0.1 + 0.2 === 0.3);
+
+//Output : false
+```
