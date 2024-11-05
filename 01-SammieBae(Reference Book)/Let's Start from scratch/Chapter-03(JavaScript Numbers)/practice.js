@@ -58,7 +58,7 @@ console.log(Number.MIN_SAFE_INTEGER); // -9007199254740991
 console.log(Number.MIN_SAFE_INTEGER - 1 === Number.MIN_SAFE_INTEGER - 2); // true
 console.log(Number.MIN_SAFE_INTEGER - 1 === Number.MIN_SAFE_INTEGER - 20); // false
 
-// Number.MIN_VALUE is also the closest floating-point to zero.
+// Number.MIN_VALUE is also the closest floating-point to zero and it is bigger than Number.MIN_SAFE_INTEGER
 console.log(Number.MIN_VALUE - 1 === -1); // true (this is because writing 5e-324 is equivalent to 0). so, 0-1 === -1
 console.log(Number.MIN_VALUE); // 5e-324
 console.log(Number.MIN_VALUE - 1.222122 === Number.MIN_VALUE - 2.32323); // false
