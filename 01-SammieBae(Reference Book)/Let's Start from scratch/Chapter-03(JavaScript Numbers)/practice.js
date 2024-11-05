@@ -68,3 +68,60 @@ console.log(Infinity); // Infinity
 console.log(Infinity > Number.MAX_VALUE); // true
 console.log(-Infinity < Number.MIN_VALUE); // true
 console.log(-Infinity - 1 === -Infinity - 10); // true (Because nothing can go smaller than -infinity)
+
+function checkPrime(n) {
+  if (n <= 1) return false;
+  if (n <= 3) return true;
+
+  if (n % 2 === 0 || n % 3 === 0) return false;
+
+  for (let i = 5; i * i < n; i = i + 6) {
+    if (n % i === 0 || n % (i + 2) === 0) return false;
+  }
+
+  return true;
+}
+
+console.log("is prime", checkPrime(23));
+// Time complexity ===> O(sqrt(n))
+
+function primeFactorization(n) {
+  console.log("n", n);
+  while (n % 2 === 0) {
+    console.log("first", 2);
+    n = n / 2;
+  }
+
+  // n must be odd at this point.
+  for (let i = 3; i * i < n; i += 2) {
+    while (n % i === 0) {
+      console.log("second", i);
+      n = n / i;
+    }
+  }
+
+  //if n is a prime number
+  if (n > 2) {
+    console.log("if prime", n);
+  }
+}
+
+primeFactorization(23211221);
+
+// Time complexity ===> O(sqrt(n))
+
+/**
+ * Random number generator
+ */
+
+// Math.random() returns a float between 0 & 1
+
+console.log(Math.random() + 1);
+console.log(Math.random() * 25); //floats between 0 and 25 (will not be 0 or 25; only between values)
+
+console.log(Math.random() * 25 + 1); // float between 1 to 26 (always grater than 1 and less than 26)
+
+//Get minimized value to nearest one
+Math.ceil(Math.random() * 25 + 1); // between 2 to 26 (both are inclusive)
+Math.floor(Math.random() * 25 + 1); // between 1 to 26 (both are inclusive)
+Math.round(Math.random() * 25 + 1); // 1 to 26 (inclusive)
