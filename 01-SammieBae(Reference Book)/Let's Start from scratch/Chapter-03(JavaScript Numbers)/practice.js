@@ -63,3 +63,8 @@ console.log(Number.MIN_VALUE - 1 === -1); // true (this is because writing 5e-32
 console.log(Number.MIN_VALUE); // 5e-324
 console.log(Number.MIN_VALUE - 1.222122 === Number.MIN_VALUE - 2.32323); // false
 console.log(Number.MIN_VALUE - 1.222122 === Number.MIN_VALUE - 200.32323); // false
+
+console.log(Infinity); // Infinity
+console.log(Infinity > Number.MAX_VALUE); // true
+console.log(-Infinity < Number.MIN_VALUE); // true
+console.log(-Infinity - 1 === -Infinity - 10); // true (Because nothing can go smaller than -infinity)
