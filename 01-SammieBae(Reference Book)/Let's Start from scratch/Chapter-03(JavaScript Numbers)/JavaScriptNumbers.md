@@ -313,3 +313,5 @@ Math.ceil(0.9); // 1  (round up to nearest integer)
 ```
 
 [Practice file](./practice.js)
+
+**_Remember the Number.EPSILON is the smallest difference between two representable numbers._**
