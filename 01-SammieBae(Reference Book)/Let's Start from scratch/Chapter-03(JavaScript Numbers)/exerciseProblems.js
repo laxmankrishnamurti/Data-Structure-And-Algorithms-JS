@@ -70,6 +70,12 @@ function checkUgly(number) {
 
 console.log("isUgly", checkUgly(5));
 
+/**
+ * The time complexity of maxDivide i a logarithmic function which depends on divisor and the number.
+ *
+ * Time complexity ===> O(log-> base 2 -> of (n))
+ */
+
 // 4. Return a vector of ugly number less than equal to n.
 
 function getUglyNumberVector(n) {
@@ -85,3 +91,6 @@ function getUglyNumberVector(n) {
 }
 
 console.log("Ugly vector", getUglyNumberVector(180));
+
+// Time complexity of getUglyNumberVector() is => O(log base 2 of n * n (for loop))
+// Hence, the time complexity would be O(nlog -> 2 -> n)
