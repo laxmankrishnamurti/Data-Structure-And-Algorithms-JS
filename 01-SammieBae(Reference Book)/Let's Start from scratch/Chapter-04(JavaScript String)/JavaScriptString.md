@@ -99,3 +99,21 @@ JavaScript objects directly inherit from other objects, which is the essence of 
 JavaScript uses prototypes to enable a form of OOP, but its foundation is more flexible and dynamic than class-based OOP. The `class` keyword in JavaScript is a more recent addition to make it easier for developers familiar with traditional OOP languages, but JavaScript still fundamentally relies on prototype chains, not a true class hierarchy.
 
 So while JavaScript can do many of the same things as class-based languages, it does so with its own unique, prototype-oriented approach. This flexibility is one of JavaScript’s strengths, allowing it to adapt to different programming styles, but it’s also why it’s not purely considered a class-based OOP language.
+
+## String Access
+
+Most programming language have a function that allows us to compare strings. In JavaScript, this can be done simply by using comparison operators.
+
+Helpful for sorting algorithms
+If we are comparing two stinrg with different lengths, it starts comparing from the start of the string until the length of the smaller string.
+
+Internally it uses ASCII value to compare two characters within a string.
+
+## String Search
+
+This is used to find a string within a string. This takes two parameter, are :-
+
+- The string which we want to find, this is a required parameter
+- It also takes an index value to search, this is an optional parameter.
+- At the end if the string is present within the parent string it will return the index value of the string.
+- If not, it will return -1
