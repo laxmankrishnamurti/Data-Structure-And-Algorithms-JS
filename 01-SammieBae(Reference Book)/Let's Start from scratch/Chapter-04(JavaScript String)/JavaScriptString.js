@@ -118,3 +118,50 @@ email = email.replace("@", "AT");
 console.log("newEmail", email);
 
 // newEmail laxmankrishnamurtiATgmail.com
+
+/**
+ * Regular Expressions
+ */
+
+console.log("REGULAR EXPRESSIONS");
+
+const regStr = "Climate change can change the human history forever";
+console.log("Result with search method", regStr.search(/can/));
+
+// Result with search method 15
+
+console.log("Result with match method", regStr.match(/can/));
+
+/* 
+Result with match method [
+  'can',
+  index: 15,
+  input: 'Climate change can change the human history forever',
+  groups: undefined
+]
+*/
+
+console.log("Result with match method", regStr.match(/a/g));
+
+// Result with match method [ 'a', 'a', 'a', 'a', 'a' ]
+
+console.log("Result with match method", regStr.match(/an/g));
+
+// Result with match method [ 'an', 'an', 'an', 'an' ]
+
+console.log("Result with match method", regStr.match(/AN/g));
+// Result with match method null
+
+console.log("Result with match method", regStr.match(/AN/i));
+
+/*
+Result with match method [
+    'an',
+    index: 10,
+    input: 'Climate change can change the human history forever',
+    groups: undefined
+]
+*/
+
+console.log("Result with match method", regStr.match(/AN/g));
+// Result with match method null

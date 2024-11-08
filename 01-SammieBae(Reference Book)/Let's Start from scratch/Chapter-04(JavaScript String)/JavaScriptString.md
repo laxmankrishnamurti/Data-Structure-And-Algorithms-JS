@@ -113,6 +113,10 @@ Internally it uses ASCII value to compare two characters within a string.
 
 This is used to find a string within a string. This takes two parameter, are :-
 
+**_indexOf(string, index)_**
+
+**This function is case sensitive.**
+
 - The string which we want to find, this is a required parameter
 - It also takes an index value to search, this is an optional parameter.
 - At the end if the string is present within the parent string it will return the index value of the string.
@@ -132,3 +136,40 @@ As the name suggests it is used to replace a string in a parent string
 - It takes two arguments
   - The original string
   - The new string which we want to use in the place of original string
+
+## Regular Expressions
+
+Regular expressions (regexes) are a set of characters that defines a search pattern. JavaScript also comes with the native object **_RegExp_**, which is used for regular expressions.
+
+The **_Constructor_** for the **_RegExp object takes two parameters_**
+
+**1. The reqular expression**
+**2. The optional match settings**
+
+**i -> Perform case-insensitive matching**
+**g -> Perform a global match (find all matches rather than stopping after first match)**
+**m -> Perform multiline matching**
+
+Regular Expressions has the following two functions :-
+
+- _search()_ :: Tests for matches in a string. This returns the index of the match.
+- _match()_ :: Tests for matches. This returns all the matches.
+
+The JavaScript String object also has the following two regex-related functions that accept the RegExp object as an argument.
+
+- _exec()_ :: Tests for matches in a string. This returns the first match.
+- _test()_ :: Tests for matches in a string. This returns true or false.
+
+### **_Basic Regular Expression Rules_**
+
+Keep in mind _Regular Expression_ is a way to filter, seach, modify or delete any character from the string. Do not treat it as a complex concept. It is. But not for now. Don't make things complicated, understand as it is.
+
+**Here are the basic regex rules**
+
+**1. ^ ===> Indicates the start of a string/line**
+**2. \d ==> Finds any digit**
+**3. [abc] ===> Finds any characters between the brackets**
+**4. [^abc] ===> Finds any character not between the brackets**
+**5. [0-9] ===> Finds any digit between the brackets**
+**6. [^0-9] ===> Finds any digit not between the brackets**
+**7. [x|y] ===> Finds any of the alternatives specified**
