@@ -117,3 +117,18 @@ This is used to find a string within a string. This takes two parameter, are :-
 - It also takes an index value to search, this is an optional parameter.
 - At the end if the string is present within the parent string it will return the index value of the string.
 - If not, it will return -1
+
+## String Decomposition
+
+We can use string decompositor to split a string into parts.
+
+- We use **_.split(separator)_** to split a string into parts
+- Returns an array
+
+## String Replace
+
+As the name suggests it is used to replace a string in a parent string
+
+- It takes two arguments
+  - The original string
+  - The new string which we want to use in the place of original string

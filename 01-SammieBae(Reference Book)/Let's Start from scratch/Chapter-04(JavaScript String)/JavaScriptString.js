@@ -15,7 +15,7 @@ console.log("name is", name2);
 
 // Single character
 
-const email = "laxmankrishnamurti@gmail.com";
+let email = "laxmankrishnamurti@gmail.com";
 const index = 2;
 console.log(`Character at ${index} index in ${email} is`, email.charAt(index));
 
@@ -78,7 +78,7 @@ console.log("isExist ->", isExist("You are an engineer", "a")); // isExist -> tr
 
 // find occurance of a character within a string
 
-const longStr = "Climate change is the biggest problem for the humanking";
+const longStr = "Climate change is the biggest problem for the humankind";
 let count = 0;
 let position = longStr.indexOf("a");
 
@@ -95,3 +95,26 @@ console.log(`Occurance of 'a' in '${longStr}' is`, count);
 
 console.log(longStr.startsWith("Climate")); // true
 console.log(longStr.endsWith("world")); // false
+
+/**
+ * String Decomposition
+ */
+
+const newStrArray = longStr.split(" ");
+console.log("newStrArray", newStrArray);
+
+// newStrArray ['Climate','change','is','the','biggest','problem','for','the','humankind']
+
+const newEmailArray = email.split("");
+console.log("newEmailArray", newEmailArray);
+
+// newEmailArray ['l','a','x','m','a','n','k','r','i','s','h','n','a','m','u','r','t','i','@','g','m','a', 'i','l','.','c','o','m']
+
+/**
+ * String Replace
+ */
+
+email = email.replace("@", "AT");
+console.log("newEmail", email);
+
+// newEmail laxmankrishnamurtiATgmail.com
