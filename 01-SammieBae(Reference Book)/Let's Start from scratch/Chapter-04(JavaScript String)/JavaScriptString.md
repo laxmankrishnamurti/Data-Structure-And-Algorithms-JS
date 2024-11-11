@@ -719,3 +719,7 @@ console.log("decodedString", decodedString);
 encodedString SGVsbG8hIE15IG5hbWUgaXMgTGF4bWFuIEtyaXNobmFtdXJ0aQ==
 decodedString Hello! My name is Laxman Krishnamurti
 ```
+
+## **Encryption**
+
+[Read the doc](<../../Recap/Chapter-04(JavaScript%20Strings)/notes/summary.md##WhatisEncryption>)
