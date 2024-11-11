@@ -185,3 +185,8 @@ uri.replace(new RegExp("([^?=&]+)(=([^&]*))", "g"), function ($0, $1, $2, $3) {
 });
 
 console.log("queryString", queryString); // queryString { category: '4', product_id: '23948', query: 'lcd+tv' }
+
+var URL = "https://google.com";
+URL = URL.replace("googlex", () => {
+  console.log("google is present in the string");
+});

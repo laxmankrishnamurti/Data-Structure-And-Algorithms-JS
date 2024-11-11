@@ -694,9 +694,3 @@ Your explanation is mostly correct, but let’s clarify a few key points to make
    - `$0` corresponds to the **entire matched string**.
    - `$1`, `$2`, etc., correspond to **capturing groups** in the regex, where `$1` is the first captured group, `$2` is the second, and so on.
    - JavaScript doesn’t require these parameter names to have a `$`; they could just as well be named `match`, `key`, `equals`, `value`, or any other descriptive name.
-
-### Corrected Explanation
-
-Here's an improved version of your explanation with these clarifications:
-
----
