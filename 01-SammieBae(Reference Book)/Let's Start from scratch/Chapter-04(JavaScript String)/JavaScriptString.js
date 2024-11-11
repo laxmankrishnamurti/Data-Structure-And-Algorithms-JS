@@ -165,3 +165,23 @@ Result with match method [
 
 console.log("Result with match method", regStr.match(/AN/g));
 // Result with match method null
+
+/**
+ * QUERY STRING
+ */
+
+console.log("QUERY STRING");
+
+var uri = "category=4&product_id=23948&query=lcd+tv";
+var queryString = {};
+
+const matches = uri.matchAll(/([^?=&]+)(=([^&]*))/g);
+console.log("Matches", matches);
+const matchesArray = [...matches];
+console.log("matchesArray", matchesArray);
+
+uri.replace(new RegExp("([^?=&]+)(=([^&]*))", "g"), function ($0, $1, $2, $3) {
+  queryString[$1] = $3;
+});
+
+console.log("queryString", queryString); // queryString { category: '4', product_id: '23948', query: 'lcd+tv' }
