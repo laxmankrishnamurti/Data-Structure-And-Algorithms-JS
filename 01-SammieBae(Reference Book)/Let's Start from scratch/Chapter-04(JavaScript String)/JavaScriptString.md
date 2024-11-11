@@ -694,3 +694,28 @@ Your explanation is mostly correct, but let’s clarify a few key points to make
    - `$0` corresponds to the **entire matched string**.
    - `$1`, `$2`, etc., correspond to **capturing groups** in the regex, where `$1` is the first captured group, `$2` is the second, and so on.
    - JavaScript doesn’t require these parameter names to have a `$`; they could just as well be named `match`, `key`, `equals`, `value`, or any other descriptive name.
+
+## **Encoding**
+
+Encoding is a general concept in computer science that represents characters in a specialized format for efficient transmission or storage.
+
+- **Base64 Encoding**
+  - In Base64 Encoding we have two functions that are used to encode a string.
+    - **btoa()** function creates a Base64-encoded ASCII string from a string. Each character in the striing is treated as a byte (8bits: eight 0 and 1s)
+    - **atob()** function decodes the string of data that has beenencoded using Base64 encoding.
+
+```js
+const normalString = "Hello! My name is Laxman Krishnamurti";
+const encodedString = btoa(normalString);
+console.log("encodedString", encodedString);
+
+const decodedString = atob(encodedString);
+console.log("decodedString", decodedString);
+```
+
+```bash
+# Output
+
+encodedString SGVsbG8hIE15IG5hbWUgaXMgTGF4bWFuIEtyaXNobmFtdXJ0aQ==
+decodedString Hello! My name is Laxman Krishnamurti
+```

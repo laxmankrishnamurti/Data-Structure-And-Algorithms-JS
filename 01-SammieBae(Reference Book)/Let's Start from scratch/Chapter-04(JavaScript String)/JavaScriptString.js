@@ -190,3 +190,12 @@ var URL = "https://google.com";
 URL = URL.replace("googlex", () => {
   console.log("google is present in the string");
 });
+
+console.log("ENCODING");
+
+const normalString = "Hello! My name is Laxman Krishnamurti";
+const encodedString = btoa(normalString);
+console.log("encodedString", encodedString);
+
+const decodedString = atob(encodedString);
+console.log("decodedString", decodedString);
