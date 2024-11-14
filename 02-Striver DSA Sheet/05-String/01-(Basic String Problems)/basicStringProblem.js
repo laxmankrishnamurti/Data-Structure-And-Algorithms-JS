@@ -67,4 +67,78 @@ var largestOddNumber = function (num) {
 };
 
 const largeOddNumber = largestOddNumber("239537672423884969653287101");
-console.log("largestOddNumber", largeOddNumber);
+// console.log("largestOddNumber", largeOddNumber);
+
+/**
+ * Isomorphic string
+ */
+
+function IsomorphicFunc(s, t) {
+  if (s.length !== t.length) return false;
+
+  const sToT = new Map();
+  const tToS = new Map();
+
+  for (let i = 0; i < s.length; i++) {
+    const charS = s[i];
+    const charT = t[i];
+
+    if (
+      (sToT.has(charS) && sToT.get(charS) !== charT) ||
+      (tToS.has(charT) && tToS.get(charT) !== charS)
+    ) {
+      return false;
+    }
+
+    sToT.set(charS, charT);
+    tToS.set(charT, charS);
+  }
+
+  return true;
+}
+
+function isomorphic(s, t) {
+  const smap = new Map();
+  const tmap = new Map();
+
+  for (let i = 0; i < s.length; i++) {
+    const charS = s[i];
+    const charT = t[i];
+
+    console.log(smap.get(charS));
+
+    smap.set(charS, charT);
+    tmap.set(charT, charS);
+  }
+
+  console.log("smap", smap);
+  console.log("tmap", tmap);
+}
+
+// isomorphic("egg", "add");
+
+/**
+ * Note :: Map is used in place where we need sort of Hashing. Like storing references in the form of key-value pairs.
+ * .has(key) ==> Is used to check whether a key is available in the map or not
+ * .get(key) ==> Is used to get the value of the key.
+ * 
+ * We can run loop on the map as we do with array. like using "for of" or "forEach" 
+ * 
+ * 
+
+const myMap = new Map([
+  ["a", 1],
+  ["b", 2],
+  ["c", 3]
+]);
+
+for (const [key, value] of myMap) {
+  console.log(key, value);
+}
+
+myMap.forEach((value, key) => {
+  console.log(key, value);
+});
+
+
+ */
