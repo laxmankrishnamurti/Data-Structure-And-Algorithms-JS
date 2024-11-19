@@ -142,3 +142,69 @@ myMap.forEach((value, key) => {
 
 
  */
+
+/**
+ * Valid Anagram
+ */
+
+function validAnagram(s, t) {
+  if (s.length !== t.length) false;
+
+  let smap = new Map();
+  let tmap = new Map();
+
+  for (let i = 0; i < s.length; i++) {
+    if (smap.has(s.charAt(i))) {
+      smap.set(s.charAt(i), smap.get(s.charAt(i)) + 1);
+    } else {
+      smap.set(s.charAt(i), 0);
+    }
+  }
+
+  for (let i = 0; i < t.length; i++) {
+    if (tmap.has(t.charAt(i))) {
+      tmap.set(t.charAt(i), tmap.get(t.charAt(i)) + 1);
+    } else {
+      tmap.set(t.charAt(i), 0);
+    }
+  }
+
+  console.log("smap", smap);
+  console.log("tmap", tmap);
+
+  console.log(smap == tmap);
+}
+
+// validAnagram("anagram", "nagaram");
+
+let str = "laxman";
+let i = 0;
+// for (; i < str.length; i++) {
+//   console.log(str.charCodeAt(i) - 97);
+// }
+
+function isValidAnagram(s, t) {
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  const arr = new Array(26).fill(0);
+
+  for (let i = 0; i < s.length; i++) {
+    console.log("arr", arr);
+    arr[s.charCodeAt(i) - 97]++;
+    console.log("arr", arr);
+    arr[t.charCodeAt(i) - 97]--;
+  }
+  console.log("out arr", arr);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(isValidAnagram("cat", "tac"));
