@@ -207,4 +207,29 @@ function isValidAnagram(s, t) {
   return true;
 }
 
-console.log(isValidAnagram("cat", "tac"));
+// console.log(isValidAnagram("cat", "tac"));
+
+function sortString(str) {
+  let strMap = new Map();
+
+  for (let i = 0; i < str.length; i++) {
+    if (strMap.has(str.charAt(i))) {
+      strMap.set(str.charAt(i), strMap.get(str.charAt(i)) + 1);
+    } else {
+      strMap.set(str.charAt(i), 1);
+    }
+  }
+
+  console.log("strMap", strMap);
+
+  const sortedMap = new Map([...strMap.entries()].sort((a, b) => b[1] - a[1]));
+
+  let sortedStr = "";
+  for (const [key, value] of sortedMap) {
+    sortedStr += `${key}`.repeat(value);
+  }
+
+  console.log("sortedStr", sortedStr);
+}
+
+sortString("tree");
