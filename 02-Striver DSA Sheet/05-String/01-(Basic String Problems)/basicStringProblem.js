@@ -232,4 +232,53 @@ function sortString(str) {
   console.log("sortedStr", sortedStr);
 }
 
-sortString("tree");
+// sortString("tree");
+
+function findMaxDepth(s) {
+  let newStr = s.replace(/[0-9]/, " ");
+  console.log("newStr", newStr);
+}
+
+// findMaxDepth("(1+(2*3)+((8)/4))+1");
+
+function myAtoi(s) {
+  let newStr = s.replace(/\s/g, "");
+  console.log("newStr", newStr);
+  const wordChecker = newStr.match(/^[a-zA-Z]/g);
+  if (wordChecker) {
+    return 0;
+  }
+  let result;
+  newStr.replace(/-?[0-9]+/, function (val) {
+    result = val;
+  });
+
+  return result;
+}
+let number = myAtoi("-91283472332");
+console.log("number", number);
+
+function myAtoi2(s) {
+  let newStr = s.trim();
+
+  // Step 2: Match the optional sign and digits at the beginning
+  let match = newStr.match(/^([+-]?\d+)/);
+  if (!match) {
+    // If no valid number found, return 0
+    return 0;
+  }
+
+  // Step 3: Parse the matched number
+  console.log("match", match);
+  let result = parseInt(match[0]);
+
+  // Step 4: Enforce 32-bit signed integer boundaries
+  let INT_MIN = -2147483648;
+  let INT_MAX = 2147483647;
+  if (result < INT_MIN) return INT_MIN;
+  if (result > INT_MAX) return INT_MAX;
+
+  return result;
+}
+
+console.log("result", myAtoi2("asdf-9zsdfasd1283472332"));
