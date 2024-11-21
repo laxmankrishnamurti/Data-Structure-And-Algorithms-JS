@@ -255,8 +255,8 @@ function myAtoi(s) {
 
   return result;
 }
-let number = myAtoi("-91283472332");
-console.log("number", number);
+// let number = myAtoi("-91283472332");
+// console.log("number", number);
 
 function myAtoi2(s) {
   let newStr = s.trim();
@@ -281,4 +281,46 @@ function myAtoi2(s) {
   return result;
 }
 
-console.log("result", myAtoi2("asdf-9zsdfasd1283472332"));
+// console.log("result", myAtoi2("asdf-9zsdfasd1283472332"));
+
+function substring(str, k) {
+  let substringArr = [];
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i; j < str.length; j++) {
+      let substring = str.slice(i, j + 1);
+      if (substringArr.indexOf(substring) === -1 && substring.length >= k) {
+        substringArr.push(substring);
+      }
+    }
+  }
+
+  const finalArr = [];
+
+  substringArr.map((str) => {
+    let count = 1;
+    for (let i = 0; i < str.length; i++) {
+      for (let j = i + 1; j < str.length; j++) {
+        console.log("str", str);
+        console.log("i str", str[i]);
+        console.log("j str", str[j]);
+        if (str[i] !== str[j]) {
+          count++;
+        } else {
+          count--;
+        }
+
+        console.log("count", count);
+        if (count >= k) {
+          finalArr.push(str);
+        }
+      }
+    }
+  });
+
+  console.log("substrArr", substringArr);
+  console.log("finalArr", finalArr);
+  return substringArr.length;
+}
+
+const substringWithKDistinct = substring("aba", 2);
+console.log(substringWithKDistinct);
