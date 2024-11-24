@@ -42,4 +42,13 @@ const str2Count = 2;
 const str3 = "abaaca";
 const str3Count = 1;
 const allSubstrings = getAllPossibleSubstring(str2, str2Count);
-console.log("allSubstrings", allSubstrings);
+// console.log("allSubstrings", allSubstrings);
+
+const charMap = {
+  name: "laxmankrishnamurt",
+  age: 22,
+  email: "laxmankrishnamurti@gmail.com",
+};
+
+const keys = Object.keys(charMap);
+console.log("keys", keys);
