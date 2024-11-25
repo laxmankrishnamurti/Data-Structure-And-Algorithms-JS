@@ -52,3 +52,39 @@ const charMap = {
 
 const keys = Object.keys(charMap);
 console.log("keys", keys);
+
+function kString(str, k) {
+  function outmostKSubstring(k) {
+    let left = 0;
+    let charMap = new Map();
+    let uniqueCharacter = 0;
+    let result = 0;
+
+    for (let right = 0; right < str.length; right++) {
+      const rightCharacter = str[right];
+
+      if (!charMap.has(rightCharacter) || charMap.get(rightCharacter) === 0) {
+        uniqueCharacter++;
+      }
+
+      charMap.set(rightCharacter, (charMap.get(rightCharacter) || 0) + 1);
+
+      while (uniqueCharacter > k) {
+        let leftCharacter = str[left];
+        charMap.set(leftCharacter, charMap.get(leftCharacter) - 1);
+
+        if (charMap.get(leftCharacter) === 0) {
+          uniqueCharacter--;
+        }
+
+        left++;
+      }
+
+      result += right - left + 1;
+    }
+
+    return result;
+  }
+
+  return outmostKSubstring(k) - outmostKSubstring(k - 1);
+}
