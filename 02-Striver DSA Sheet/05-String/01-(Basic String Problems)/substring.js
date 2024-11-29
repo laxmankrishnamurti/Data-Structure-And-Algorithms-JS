@@ -88,3 +88,38 @@ function kString(str, k) {
 
   return outmostKSubstring(k) - outmostKSubstring(k - 1);
 }
+
+function longestPalindromicSubstring(s) {
+  let max = 0;
+  let start = 0;
+  let end = 0;
+
+  function isPalindrom(str, i, j) {
+    while (i < j) {
+      if (str.charAt(i) !== str.charAt(j)) {
+        return false;
+      }
+      i++;
+      j--;
+    }
+
+    return true;
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    for (let j = i; j < s.length; j++) {
+      if (isPalindrom(s, i, j)) {
+        if (j - i + 1 > max) {
+          max = j - i + 1;
+          start = i;
+          end = j;
+        }
+      }
+    }
+  }
+
+  return s.substring(start, end + 1);
+}
+
+const longSubstr = longestPalindromicSubstring("babad");
+console.log("long substr", longSubstr);
