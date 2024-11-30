@@ -123,3 +123,41 @@ function longestPalindromicSubstring(s) {
 
 const longSubstr = longestPalindromicSubstring("babad");
 console.log("long substr", longSubstr);
+
+function sumOfStringBeauty(str) {
+  let sum = 0;
+
+  function getMinCount(freq) {
+    let minCount = 500;
+    for (let i = 0; i < freq.length; i++) {
+      if (freq[i] !== 0) {
+        minCount = Math.min(minCount, freq[i]);
+      }
+    }
+    console.log("mincount", minCount);
+    return minCount;
+  }
+
+  function getMaxCount(freq) {
+    let maxCount = 0;
+    for (let i = 0; i < freq.length; i++) {
+      maxCount = Math.max(maxCount, freq[i]);
+    }
+    console.log("maxcount", maxCount);
+    return maxCount;
+  }
+
+  for (let i = 0; i < str.length; i++) {
+    const arr = Array(26).fill(0);
+    for (let j = i; j < str.length; j++) {
+      const index = str.charAt(j).charCodeAt(0) - 97;
+      arr[index]++;
+      let beauty = getMaxCount(arr) - getMinCount(arr);
+      sum += beauty;
+    }
+  }
+
+  return sum;
+}
+let beauty = sumOfStringBeauty("aabcb");
+console.log("beauty", beauty);
