@@ -134,4 +134,10 @@ No!
 
 **_Why_**
 
-Because JavaScript array are not contiguous block of memory like in low-level languages. Instead, they are objects with special behavior.
+Because ::
+
+- **JavaScript array are not contiguous block of memory like in low-level languages.**
+- **Instead, they are objects with special behavior.**
+  - Where keys are indices
+  - And values are the elements.
+  - Internally, in JavaScript every array has an extra key-value pair is **_length_**
