@@ -127,3 +127,11 @@ In JavaScript, when an **array grows beyond its current allocated capacity**, it
 - We don’t observe or control memory changes directly, but they happen under the hood.
 
 This is how JavaScript arrays maintain flexibility while using dynamic resizing!
+
+# `Does this work same in JavaScript?`
+
+No!
+
+**_Why_**
+
+Because JavaScript array are not contiguous block of memory like in low-level languages. Instead, they are objects with special behavior.
